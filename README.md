@@ -95,6 +95,8 @@ I'm excited to collaborate on projects and explore opportunities in the realm of
 <p>
   <a href="https://code.visualstudio.com/"><img src="https://img.icons8.com/color/48/000000/visual-studio-code-2019.png" alt="VS Code"/></a>
   <a href="https://jupyter.org/"><img src="https://www.vectorlogo.zone/logos/jupyter/jupyter-icon.svg" alt="Jupyter Notebook" width="48"/></a>
+  <a href="https://traefik.io/"><img src="https://img.icons8.com/fluency/48/000000/traefik.png" alt="Traefik"/></a>
+  <a href="https://cursor.sh/"><img src="https://img.icons8.com/fluency/48/000000/cursor.png" alt="Cursor AI"/></a>
 </p>
 
 ## Operating Systems
