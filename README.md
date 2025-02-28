@@ -1,7 +1,7 @@
 # Welcome to My GitHub Profile! 👋
 
-![Visitors](https://komarev.com/ghpvc/?username=Man-of-Mischief&color=blueviolet)
-[![Followers](https://img.shields.io/github/followers/Man-of-Mischief?style=social)](https://github.com/Man-of-Mischief)
+![Visitors](https://komarev.com/ghpvc/?username=ni8hin&color=blueviolet)
+[![Followers](https://img.shields.io/github/followers/ni8hin?style=social)](https://github.com/Man-of-Mischief)
 [<img align="right" src="https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat&logo=linkedin">](https://www.linkedin.com/in/nidhinbabukuttan/)
 
 ...
