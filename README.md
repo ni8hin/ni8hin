@@ -61,7 +61,6 @@ I'm excited to collaborate on projects and explore opportunities in the realm of
     <a href="https://aws.amazon.com/s3/"><img src="https://img.icons8.com/color/48/000000/amazon-s3.png" alt="Amazon S3"/></a>
     <a href="https://www.terraform.io/"><img src="https://img.icons8.com/color/48/000000/terraform.png" alt="Terraform"/></a>
     <a href="https://www.ansible.com/"><img src="https://img.icons8.com/color/48/000000/ansible.png" alt="Ansible"/></a>
-    <a href="https://coolify.io/"><img src="https://via.placeholder.com/48" alt="Coolify"/></a>
     <a href="https://supabase.com/"><img src="https://img.icons8.com/color/48/000000/supabase.png" alt="Supabase"/></a>
     <a href="https://www.cursor.so/"><img src="https://img.icons8.com/color/48/000000/ai.png" alt="Cursor AI Editor"/></a>
     <a href="https://www.office.com/"><img src="https://img.icons8.com/color/48/000000/office-365.png" alt="Office 365 Apps"/></a>
