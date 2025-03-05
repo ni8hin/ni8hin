@@ -123,7 +123,7 @@ I'm excited to collaborate on projects and explore opportunities in the realm of
 ## Github Statistics
 
 <p align="center">
-  <a href="https://github.com/Man-of-Mischief">
-    <img src="https://github-readme-stats.vercel.app/api?username=Man-of-Mischief" alt="Your GitHub stats">
+  <a href="https://github.com/ni8hin">
+    <img src="https://github-readme-stats.vercel.app/api?username=ni8hin" alt="Your GitHub stats">
   </a>
 </p>
