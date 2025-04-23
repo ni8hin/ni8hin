@@ -61,7 +61,6 @@ I'm excited to collaborate on projects and explore opportunities in the realm of
     <a href="https://aws.amazon.com/apprunner/"><img src="https://img.icons8.com/color/48/000000/cloud.png" alt="AWS App Runner"/></a>
     <a href="https://aws.amazon.com/amplify/"><img src="https://img.icons8.com/color/48/000000/source-code.png" alt="AWS Amplify"/></a>
     <a href="https://aws.amazon.com/s3/"><img src="https://img.icons8.com/color/48/000000/amazon-s3.png" alt="Amazon S3"/></a>
-    <a href="https://n8n.io/"><img src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/48/000000/external-n8n-is-an-open-source-workflow-automation-tool-logo-color-tal-revivo.png" alt="n8n Workflow Automation"/></a>
     <a href="https://www.terraform.io/"><img src="https://img.icons8.com/color/48/000000/terraform.png" alt="Terraform"/></a>
     <a href="https://www.ansible.com/"><img src="https://img.icons8.com/color/48/000000/ansible.png" alt="Ansible"/></a>
     <a href="https://www.office.com/"><img src="https://img.icons8.com/color/48/000000/office-365.png" alt="Office 365 Apps"/></a>
