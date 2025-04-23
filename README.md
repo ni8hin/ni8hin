@@ -58,10 +58,12 @@ I'm excited to collaborate on projects and explore opportunities in the realm of
     <a href="https://github.com/"><img src="https://img.icons8.com/fluent/48/000000/github.png" alt="GitHub"/></a>
     <a href="https://www.docker.com/"><img src="https://img.icons8.com/color/48/000000/docker.png" alt="Docker"/></a>
     <a href="https://kubernetes.io/"><img src="https://img.icons8.com/color/48/000000/kubernetes.png" alt="Kubernetes"/></a>
+    <a href="https://aws.amazon.com/apprunner/"><img src="https://img.icons8.com/color/48/000000/cloud.png" alt="AWS App Runner"/></a>
+    <a href="https://aws.amazon.com/amplify/"><img src="https://img.icons8.com/color/48/000000/source-code.png" alt="AWS Amplify"/></a>
     <a href="https://aws.amazon.com/s3/"><img src="https://img.icons8.com/color/48/000000/amazon-s3.png" alt="Amazon S3"/></a>
+    <a href="https://n8n.io/"><img src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/48/000000/external-n8n-is-an-open-source-workflow-automation-tool-logo-color-tal-revivo.png" alt="n8n Workflow Automation"/></a>
     <a href="https://www.terraform.io/"><img src="https://img.icons8.com/color/48/000000/terraform.png" alt="Terraform"/></a>
     <a href="https://www.ansible.com/"><img src="https://img.icons8.com/color/48/000000/ansible.png" alt="Ansible"/></a>
-    <a href="https://www.cursor.so/"><img src="https://img.icons8.com/color/48/000000/ai.png" alt="Cursor AI Editor"/></a>
     <a href="https://www.office.com/"><img src="https://img.icons8.com/color/48/000000/office-365.png" alt="Office 365 Apps"/></a>
     <a href="https://www.microsoft.com/en-us/microsoft-365/excel"><img src="https://img.icons8.com/color/48/000000/microsoft-excel-2019--v1.png" alt="Microsoft Excel"/></a>
     <a href="https://www.microsoft.com/en-us/microsoft-365/powerpoint"><img src="https://img.icons8.com/color/48/000000/microsoft-powerpoint-2019--v2.png" alt="Microsoft PowerPoint"/></a>
@@ -94,6 +96,7 @@ I'm excited to collaborate on projects and explore opportunities in the realm of
 ## IDEs
 <p>
   <a href="https://code.visualstudio.com/"><img src="https://img.icons8.com/color/48/000000/visual-studio-code-2019.png" alt="VS Code"/></a>
+  <a href="https://www.cursor.so/"><img src="https://img.icons8.com/color/48/000000/ai.png" alt="Cursor AI Editor"/></a>
   <a href="https://jupyter.org/"><img src="https://www.vectorlogo.zone/logos/jupyter/jupyter-icon.svg" alt="Jupyter Notebook" width="48"/></a>
 </p>
 
