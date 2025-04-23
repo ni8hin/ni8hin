@@ -109,18 +109,6 @@ I'm excited to collaborate on projects and explore opportunities in the realm of
   <a href="https://www.android.com/"><img src="https://img.icons8.com/color/48/000000/android-os.png" alt="Android"/></a>
 </p>
 
-## Social Media Profiles 📲
-
-<p>
-  <a href="https://www.instagram.com/ni8hin?igsh=aHZxNDcwNjA3d2cz"><img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="Instagram"/></a>
-  <a href="https://x.com/ni8hin"><img src="https://img.icons8.com/color/48/000000/twitter.png" alt="Twitter"/></a>
-  <a href="https://www.linkedin.com/in/nidhinbabukuttan/"><img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="LinkedIn"/></a>
-  <a href="https://github.com/Man-of-Mischief"><img src="https://img.icons8.com/fluent/48/000000/github.png" alt="GitHub"/></a>
-  <a href="https://medium.com/@nidhinbabukuttan"><img src="https://img.icons8.com/color/48/000000/medium-monogram.png" alt="Medium"/></a>
-  <a href="mailto:nidhinbabukuttan@gmail.com"><img src="https://img.icons8.com/color/48/000000/gmail.png" alt="Gmail"></a>
-</p>
-
-
 ## 🔗 Let’s Connect!
 
 <p>
