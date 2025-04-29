@@ -24,9 +24,6 @@ As an advocate of infrastructure as code, I utilize Terraform to manage and prov
 ## 🐧 Linux Administration:
 Proficient in Linux administration, I excel in managing Linux servers, troubleshooting issues, and deploying applications on Linux-based systems. From server configuration to performance tuning, I strive to create robust and secure Linux environments for efficient operations.
 
-## 🐍 Python Development:
-With a strong foundation in Python development, I enjoy building small-scale applications that deliver real-world value. I leverage Python's versatility to create efficient and maintainable code, and I'm constantly exploring new libraries and frameworks to enhance my skillset.
-
 ## 🚀 DevOps Enthusiast:
 As a DevOps engineer, I am driven by the desire to bridge the gap between development and operations. I embrace a collaborative approach to software development, advocating for continuous integration and delivery practices. By implementing automation, version control, and monitoring tools, I strive to streamline the development lifecycle and ensure seamless deployments.
 
