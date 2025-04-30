@@ -11,7 +11,7 @@
   <img src="https://user-images.githubusercontent.com/22107794/139580686-887df369-edb8-4bc8-b607-4fbf6d7e4866.gif" alt="Coding Geek" />
 </p>
 
-## Cloud Solution Architect | Lead DevOps Engineer | AWS Cloud | Linux Administration | Python Developer
+## Cloud Solution Architect | Lead DevOps Engineer | AWS Cloud | Linux Administration
 
 👋 Welcome to my GitHub profile! I'm Nidhin, a passionate DevOps engineer with expertise in AWS cloud, Linux administration, and Python development. I believe in leveraging cutting-edge technologies to build scalable and efficient solutions.
 
