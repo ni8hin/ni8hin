@@ -123,6 +123,6 @@ I'm excited to collaborate on projects and explore opportunities in the realm of
 
 <p align="center">
   <a href="https://github.com/ni8hin">
-    <img src="https://gh-readme-profile.vercel.app/api?username=ni8hin&theme=catppuccin-latte" alt="Your GitHub stats">
+    <img src="https://gh-readme-profile.vercel.app/api?username=ni8hin&theme=twitch-gradient" alt="Your GitHub stats">
   </a>
 </p>
