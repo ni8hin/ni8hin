@@ -2,7 +2,7 @@
 
 ![Visitors](https://komarev.com/ghpvc/?username=ni8hin&color=blueviolet)
 [![Followers](https://img.shields.io/github/followers/ni8hin?style=social)](https://github.com/Man-of-Mischief)
-[<img align="right" src="https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat&logo=linkedin">](https://www.linkedin.com/in/nidhinbabukuttan/)
+[<img align="right" src="https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat&logo=linkedin">](https://www.linkedin.com/in/ni8hin/)
 
 ...
 
@@ -11,113 +11,183 @@
   <img src="https://user-images.githubusercontent.com/22107794/139580686-887df369-edb8-4bc8-b607-4fbf6d7e4866.gif" alt="Coding Geek" />
 </p>
 
-## Cloud Solution Architect | Lead DevOps Engineer | AWS Cloud | Linux Administration
+## Cloud Solutions Architect | Lead DevOps Engineer | AWS | Linux | Professional Production Babysitter™
 
-👋 Welcome to my GitHub profile! I'm Nidhin, a passionate DevOps engineer with expertise in AWS cloud, Linux administration, and Python development. I believe in leveraging cutting-edge technologies to build scalable and efficient solutions.
+👋 Hi, I’m Nidhin.
 
-## 🌩️ AWS Cloud:
-I have extensive experience working with various AWS cloud services, including EC2, S3, Route53, VPC, and more. I'm well-versed in provisioning and managing cloud resources, ensuring high availability, and optimizing performance. I can harness the power of AWS CLI to automate workflows and streamline deployments.
+I design cloud infrastructure so:
+- Deployments don’t panic
+- Production doesn’t surprise anyone
+- Developers ship faster without breaking things
+- AWS bills don’t require emotional support
 
-## 🏗️ Terraform:
-As an advocate of infrastructure as code, I utilize Terraform to manage and provision cloud infrastructure effortlessly. I can write clear and concise Terraform configurations to define resources such as virtual machines, VPCs, and networking components on AWS.
+Currently working at **Psypher AI**, where I handle cloud architecture, DevOps, deployments, and the occasional “why is this down?” conversation.
 
-## 🐧 Linux Administration:
-Proficient in Linux administration, I excel in managing Linux servers, troubleshooting issues, and deploying applications on Linux-based systems. From server configuration to performance tuning, I strive to create robust and secure Linux environments for efficient operations.
+---
 
-## 🚀 DevOps Enthusiast:
-As a DevOps engineer, I am driven by the desire to bridge the gap between development and operations. I embrace a collaborative approach to software development, advocating for continuous integration and delivery practices. By implementing automation, version control, and monitoring tools, I strive to streamline the development lifecycle and ensure seamless deployments.
-
-## 🔧 Technical Support:
-In addition to my technical expertise, I have a proven track record in providing exceptional technical support. With excellent communication skills, both verbal and written, I excel in troubleshooting complex issues, identifying root causes, and proposing effective solutions. I am meticulous in documenting technical problems and their resolutions, ensuring knowledge sharing and future reference.
-
-## 🎓 Continuous Learning:
-I am a lifelong learner, always eager to stay up-to-date with the latest advancements in technology. I actively engage in professional development, attending conferences, participating in online courses, and exploring emerging trends. This mindset enables me to adapt quickly to new tools and methodologies, ensuring that I provide the best possible solutions for any given challenge.
-
-## ✉️ Let's Connect:
-I'm excited to collaborate on projects and explore opportunities in the realm of AWS cloud, Linux administration, and Python development. Feel free to connect with me on GitHub to explore possibilities and join me on this exciting journey!
-
-## Skillset
-
-## Languages
+## ☁️ AWS Cloud (Yes, I Check the Bill)
 
 <p>
-  <a href="https://www.python.org/"><img src="https://img.icons8.com/color/48/000000/python.png" alt="Python"/></a>
-  <a href="https://www.json.org/"><img src="https://img.icons8.com/color/48/000000/json.png" alt="JSON"/></a>
-  <a href="https://www.gnu.org/software/bash/"><img src="https://img.icons8.com/color/48/000000/console.png" alt="Shell Scripting"/></a>
-  <a href="https://developer.mozilla.org/en-US/docs/Web/HTML"><img src="https://img.icons8.com/color/48/000000/html-5--v1.png" alt="HTML"/></a>
+  <a href="https://aws.amazon.com/"><img src="https://img.icons8.com/color/48/000000/amazon-web-services.png" alt="AWS"/></a>
 </p>
 
-## Tools
+I architect and manage AWS infrastructure with a focus on:
+- High availability (things stay up)
+- Cost optimization (things don’t get expensive for no reason)
+- Secure networking and IAM (things stay private)
+- Scalability (things survive real users)
+
+I automate deployments using CI/CD so humans don’t have to click buttons at 2 AM.
+
+---
+
+## 🏗️ Infrastructure as Code (ClickOps Is a Crime)
 
 <p>
-    <a href="https://www.linux.org/"><img src="https://img.icons8.com/color/48/000000/linux.png" alt="Linux"/></a>
-    <a href="https://www.atlassian.com/software/jira"><img src="https://img.icons8.com/color/48/000000/jira.png" alt="Jira"/></a>
-    <a href="https://github.com/"><img src="https://img.icons8.com/fluent/48/000000/github.png" alt="GitHub"/></a>
-    <a href="https://www.docker.com/"><img src="https://img.icons8.com/color/48/000000/docker.png" alt="Docker"/></a>
-    <a href="https://kubernetes.io/"><img src="https://img.icons8.com/color/48/000000/kubernetes.png" alt="Kubernetes"/></a>
-    <a href="https://aws.amazon.com/apprunner/"><img src="https://img.icons8.com/color/48/000000/cloud.png" alt="AWS App Runner"/></a>
-    <a href="https://aws.amazon.com/amplify/"><img src="https://img.icons8.com/color/48/000000/source-code.png" alt="AWS Amplify"/></a>
-    <a href="https://aws.amazon.com/s3/"><img src="https://img.icons8.com/color/48/000000/amazon-s3.png" alt="Amazon S3"/></a>
-    <a href="https://www.terraform.io/"><img src="https://img.icons8.com/color/48/000000/terraform.png" alt="Terraform"/></a>
-    <a href="https://www.ansible.com/"><img src="https://img.icons8.com/color/48/000000/ansible.png" alt="Ansible"/></a>
-    <a href="https://www.office.com/"><img src="https://img.icons8.com/color/48/000000/office-365.png" alt="Office 365 Apps"/></a>
-    <a href="https://www.microsoft.com/en-us/microsoft-365/excel"><img src="https://img.icons8.com/color/48/000000/microsoft-excel-2019--v1.png" alt="Microsoft Excel"/></a>
-    <a href="https://www.microsoft.com/en-us/microsoft-365/powerpoint"><img src="https://img.icons8.com/color/48/000000/microsoft-powerpoint-2019--v2.png" alt="Microsoft PowerPoint"/></a>
-    <a href="https://en.wikipedia.org/wiki/Cmd.exe"><img src="https://img.icons8.com/color/48/000000/console.png" alt="Command Prompt (CMD)"/></a>
+  <a href="https://www.terraform.io/"><img src="https://img.icons8.com/color/48/000000/terraform.png" alt="Terraform"/></a>
+  <a href="https://www.ansible.com/"><img src="https://img.icons8.com/color/48/000000/ansible.png" alt="Ansible"/></a>
 </p>
 
-## Monitoring Tools
+If infrastructure can’t be recreated from code, I don’t trust it.
+
+I use Terraform and Ansible to:
+- Provision cloud infrastructure safely
+- Maintain consistent environments
+- Avoid “it worked last time” disasters
+
+Infrastructure should be boring. Chaos is for debugging, not provisioning.
+
+---
+
+## 🐳 Containers & Deployments (Shipping Without Fear)
 
 <p>
-    <a href="https://grafana.com/"><img src="https://img.icons8.com/color/48/000000/grafana.png" alt="Grafana"/></a>
-    <a href="https://www.elastic.co/kibana"><img src="https://img.icons8.com/color/48/000000/kibana.png" alt="Kibana"/></a>
+  <a href="https://www.docker.com/"><img src="https://img.icons8.com/color/48/000000/docker.png" alt="Docker"/></a>
+  <a href="https://coolify.io/"><img src="https://img.icons8.com/color/48/000000/docker.png" alt="Coolify"/></a>
 </p>
 
-## Cloud Platforms
+I containerize applications so:
+- They behave the same everywhere
+- Deployments are repeatable
+- Rollbacks exist (and actually work)
+
+Staging and production are treated like adults — no surprises.
+
+---
+
+## 🚀 CI/CD (Because Manual Deployments Are Trust Issues)
 
 <p>
-    <a href="https://aws.amazon.com/"><img src="https://img.icons8.com/color/48/000000/amazon-web-services.png" alt="AWS"/></a>
-    <a href="https://azure.microsoft.com/"><img src="https://img.icons8.com/color/48/000000/azure-1.png" alt="Azure"/></a>
-    <a href="https://www.hetzner.com/cloud"><img src="https://img.icons8.com/color/48/000000/cloud.png" alt="Hetzner Cloud"/></a>
+  <a href="https://github.com/features/actions"><img src="https://img.icons8.com/fluent/48/000000/github.png" alt="GitHub Actions"/></a>
 </p>
 
-## Databases
+I design CI/CD pipelines that:
+- Reduce deployment time
+- Increase release frequency
+- Lower stress levels across teams
+
+If a pipeline fails, it tells you **why** — not just that it did.
+
+---
+
+## 📊 Monitoring & Observability (Guessing Is Not Monitoring)
 
 <p>
-  <a href="https://www.mysql.com/"><img src="https://img.icons8.com/color/48/000000/mysql-logo.png" alt="MySQL"/></a>
-  <a href="https://www.mongodb.com/"><img src="https://img.icons8.com/color/48/000000/mongodb.png" alt="MongoDB"></a>
-  <a href="https://supabase.com/"><img src="https://img.icons8.com/color/48/000000/supabase.png" alt="Supabase"/></a>
+  <a href="https://aws.amazon.com/cloudwatch/"><img src="https://img.icons8.com/color/48/000000/monitor.png" alt="CloudWatch"/></a>
+  <a href="https://grafana.com/"><img src="https://img.icons8.com/color/48/000000/grafana.png" alt="Grafana"/></a>
+  <a href="https://prometheus.io/"><img src="https://img.icons8.com/color/48/000000/activity.png" alt="Prometheus"/></a>
 </p>
 
-## IDEs
-<p>
-  <a href="https://code.visualstudio.com/"><img src="https://img.icons8.com/color/48/000000/visual-studio-code-2019.png" alt="VS Code"/></a>
-  <a href="https://www.cursor.so/"><img src="https://img.icons8.com/color/48/000000/ai.png" alt="Cursor AI Editor"/></a>
-  <a href="https://jupyter.org/"><img src="https://www.vectorlogo.zone/logos/jupyter/jupyter-icon.svg" alt="Jupyter Notebook" width="48"/></a>
-</p>
+I set up monitoring so:
+- Issues are detected early
+- MTTR goes down
+- Nobody finds out from Twitter first
 
-## Operating Systems
+Dashboards > assumptions.
+
+---
+
+## 🐧 Linux Administration (Where Things Actually Run)
 
 <p>
   <a href="https://ubuntu.com/"><img src="https://img.icons8.com/color/48/000000/ubuntu.png" alt="Ubuntu"/></a>
-  <a href="https://www.redhat.com/en"><img src="https://img.icons8.com/color/48/000000/red-hat.png" alt="Red Hat"/></a>
-  <a href="https://www.microsoft.com/en-us/windows"><img src="https://img.icons8.com/color/48/000000/windows-10.png" alt="Windows"/></a>
-  <a href="https://www.apple.com/macos/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1200px-Apple_logo_black.svg.png" alt="macOS" width="48"/></a>
-  <a href="https://www.unix.org/"><img src="https://img.icons8.com/color/48/000000/unix.png" alt="Unix"/></a>
   <a href="https://www.debian.org/"><img src="https://img.icons8.com/color/48/000000/debian.png" alt="Debian"/></a>
-  <a href="https://www.android.com/"><img src="https://img.icons8.com/color/48/000000/android-os.png" alt="Android"/></a>
+  <a href="https://www.redhat.com/"><img src="https://img.icons8.com/color/48/000000/red-hat.png" alt="Red Hat"/></a>
 </p>
 
-## 🔗 Let’s Connect!
+Linux is home.
+
+I manage servers, tune performance, debug logs, and fix problems that start with:
+> “It was working yesterday…”
+
+---
+
+## 🗄️ Databases & Backend Services
 
 <p>
-  <a href="https://www.instagram.com/ni8hin?igsh=aHZxNDcwNjA3d2cz"><img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="Instagram"/></a>
-  <a href="https://x.com/ni8hin_"><img src="https://img.icons8.com/color/48/000000/twitter.png" alt="Twitter"/></a>
+  <a href="https://www.mysql.com/"><img src="https://img.icons8.com/color/48/000000/mysql-logo.png" alt="MySQL"/></a>
+  <a href="https://supabase.com/"><img src="https://img.icons8.com/color/48/000000/supabase.png" alt="Supabase"/></a>
+  <a href="https://www.mongodb.com/"><img src="https://img.icons8.com/color/48/000000/mongodb.png" alt="MongoDB"/></a>
+</p>
+
+I don’t just deploy databases — I make sure they:
+- Are backed up
+- Are secure
+- Don’t become the bottleneck
+
+---
+
+## 🧠 Leadership & Delivery (Yes, I Manage Things Too)
+
+<p>
+  <a href="https://linear.app/"><img src="https://img.icons8.com/color/48/000000/task.png" alt="Linear"/></a>
+  <a href="https://www.notion.so/"><img src="https://img.icons8.com/color/48/000000/notion.png" alt="Notion"/></a>
+  <a href="https://slack.com/"><img src="https://img.icons8.com/color/48/000000/slack-new.png" alt="Slack"/></a>
+</p>
+
+Along with DevOps, I:
+- Lead infrastructure planning for multiple products
+- Guide developers on deployment and production readiness
+- Coordinate releases across teams
+- Make sure things ship on time and in one piece
+
+I manage projects so engineers can focus on engineering.
+
+---
+
+## 🧰 Full Tech Stack (Because Recruiters Scroll)
+
+### Languages
+<p>
+  <a href="https://www.python.org/"><img src="https://img.icons8.com/color/48/000000/python.png" alt="Python"/></a>
+  <a href="https://www.gnu.org/software/bash/"><img src="https://img.icons8.com/color/48/000000/console.png" alt="Shell"/></a>
+  <a href="https://www.json.org/"><img src="https://img.icons8.com/color/48/000000/json.png" alt="JSON"/></a>
+</p>
+
+### Version Control
+<p>
+  <a href="https://git-scm.com/"><img src="https://img.icons8.com/color/48/000000/git.png" alt="Git"/></a>
+  <a href="https://github.com/"><img src="https://img.icons8.com/fluent/48/000000/github.png" alt="GitHub"/></a>
+</p>
+
+---
+
+## 📬 Let’s Connect (If You Like Stable Systems)
+
+<p>
   <a href="https://www.linkedin.com/in/ni8hin/"><img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="LinkedIn"/></a>
   <a href="https://github.com/ni8hin"><img src="https://img.icons8.com/fluent/48/000000/github.png" alt="GitHub"/></a>
+  <a href="https://x.com/ni8hin_"><img src="https://img.icons8.com/color/48/000000/twitter.png" alt="Twitter/X"/></a>
   <a href="https://medium.com/@ni8hin"><img src="https://img.icons8.com/color/48/000000/medium-monogram.png" alt="Medium"/></a>
-  <a href="mailto:nidhinbabukuttan@gmail.com"><img src="https://img.icons8.com/color/48/000000/gmail.png" alt="Gmail"></a>
+  <a href="mailto:nidhinbabukuttan@gmail.com"><img src="https://img.icons8.com/color/48/000000/gmail.png" alt="Gmail"/></a>
 </p>
+
+---
+
+⚠️ *Disclaimer:*  
+I automate things so I don’t have to fix them twice.  
+If something breaks, there’s probably a dashboard explaining why.
+
 
 ## Github Statistics
 
