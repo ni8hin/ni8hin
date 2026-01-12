@@ -1,10 +1,19 @@
 # I make deployments boring and production reliable
 
-![Visitors](https://komarev.com/ghpvc/?username=ni8hin&color=blueviolet)
-[![Followers](https://img.shields.io/github/followers/ni8hin?style=social)](https://github.com/Man-of-Mischief)
-[<img align="right" src="https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat&logo=linkedin">](https://www.linkedin.com/in/ni8hin/)
 
-...
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=ni8hin&label=PROFILE+VIEWS&color=blueviolet&style=for-the-badge"/>
+  <a href="https://github.com/ni8hin">
+    <img src="https://img.shields.io/github/followers/ni8hin?label=FOLLOW&style=for-the-badge&logo=github"/>
+  </a>
+  <a href="https://www.linkedin.com/in/ni8hin/">
+    <img src="https://img.shields.io/badge/LINKEDIN-CONNECT-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
+  </a>
+  <a href="https://www.instagram.com/ni8hin/">
+    <img src="https://img.shields.io/badge/INSTAGRAM-FOLLOW-E4405F?style=for-the-badge&logo=instagram&logoColor=white"/>
+  </a>
+</p>
+
 
 <!-- Coding Geek Animation -->
 <p align="center">
