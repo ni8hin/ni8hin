@@ -193,6 +193,6 @@ If something breaks, there’s probably a dashboard explaining why.
 
 <p align="center">
   <a href="https://github.com/ni8hin">
-    <img src="http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=ni8hin&theme=midnight_purple" alt="Your GitHub stats">
+    <img src="http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=ni8hin&theme=chartreuse_dark" alt="Your GitHub stats">
   </a>
 </p>
