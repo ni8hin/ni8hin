@@ -13,7 +13,7 @@
     <img src="https://img.shields.io/badge/INSTAGRAM-FOLLOW-E4405F?style=for-the-badge&logo=instagram&logoColor=white"/>
   </a>
 </p>
-
+</br>
 
 <!-- Coding Geek Animation -->
 <p align="center">
