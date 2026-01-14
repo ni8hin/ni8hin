@@ -197,15 +197,3 @@ I manage projects so engineers can focus on engineering.
 ⚠️ *Disclaimer:*  
 I automate things so I don’t have to fix them twice.  
 If something breaks, there’s probably a dashboard explaining why.
-
-
-## Github Statistics
-</br>
-<p align="center">
-  <img src="https://github-readme-stats-fast.vercel.app/api?username=ni8hin&show_icons=true&theme=github_dark" height="165"/>
-  <img src="https://github-readme-stats-fast.vercel.app/api/streak?username=ni8hin&theme=github_dark" height="165"/>
-</p>
-
-<p align="center">
-  <img src="https://github-readme-stats-fast.vercel.app/api/top-langs/?username=ni8hin&layout=compact&theme=github_dark" height="165"/>
-</p>
