@@ -200,9 +200,12 @@ If something breaks, there’s probably a dashboard explaining why.
 
 
 ## Github Statistics
+</br>
+<p align="center">
+  <img src="https://github-readme-stats-fast.vercel.app/api?username=ni8hin&show_icons=true&theme=github_dark" height="165"/>
+  <img src="https://github-readme-stats-fast.vercel.app/api/streak?username=ni8hin&theme=github_dark" height="165"/>
+</p>
 
 <p align="center">
-  <a href="https://github.com/ni8hin">
-    <img src="http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=ni8hin&theme=chartreuse_dark" alt="Your GitHub stats">
-  </a>
+  <img src="https://github-readme-stats-fast.vercel.app/api/top-langs/?username=ni8hin&layout=compact&theme=github_dark" height="165"/>
 </p>
