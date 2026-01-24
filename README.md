@@ -15,181 +15,252 @@
 </p>
 </br>
 
-<!-- Coding Geek Animation -->
 <p align="center">
   <img src="https://user-images.githubusercontent.com/22107794/139580686-887df369-edb8-4bc8-b607-4fbf6d7e4866.gif" alt="Coding Geek" />
 </p>
 
-## Cloud Solutions Architect | Lead DevOps Engineer | AWS | Linux | Professional Production Babysitter™
+## Cloud Solutions Architect | Lead DevOps Engineer | Frontend & UI/UX Engineer | AWS | Linux | Professional Production Babysitter™
 
-👋 Hi, I’m Nidhin.
+👋 Hi, I’m **Nidhin**.
 
-I design cloud infrastructure so:
-- Deployments don’t panic
-- Production doesn’t surprise anyone
-- Developers ship faster without breaking things
-- AWS bills don’t require emotional support
+I design systems so:
+- Deployments don’t panic  
+- Production doesn’t surprise anyone  
+- Developers ship faster without breaking things  
+- AWS bills don’t require emotional support  
 
-Currently working at **Psypher AI**, where I handle cloud architecture, DevOps, deployments, and the occasional “why is this down?” conversation.
+Currently working at **Psypher AI**, handling cloud architecture, DevOps, frontend delivery, and the occasional  
+**“why is this down?”** conversation.
 
 ---
 
 ## ☁️ AWS Cloud (Yes, I Check the Bill)
 
 <p>
-  <a href="https://aws.amazon.com/"><img src="https://img.icons8.com/color/48/000000/amazon-web-services.png" alt="AWS"/></a>
+  <a href="https://aws.amazon.com/">
+    <img src="https://img.icons8.com/color/48/000000/amazon-web-services.png" alt="AWS"/>
+  </a>
 </p>
 
 I architect and manage AWS infrastructure with a focus on:
 - High availability (things stay up)
 - Cost optimization (things don’t get expensive for no reason)
-- Secure networking and IAM (things stay private)
-- Scalability (things survive real users)
+- Secure networking and IAM
+- Scalability that survives real users
 
-I automate deployments using CI/CD so humans don’t have to click buttons at 2 AM.
+Automation > heroics.
 
 ---
 
 ## 🏗️ Infrastructure as Code (ClickOps Is a Crime)
 
 <p>
-  <a href="https://www.terraform.io/"><img src="https://img.icons8.com/color/48/000000/terraform.png" alt="Terraform"/></a>
-  <a href="https://www.ansible.com/"><img src="https://img.icons8.com/color/48/000000/ansible.png" alt="Ansible"/></a>
+  <a href="https://www.terraform.io/">
+    <img src="https://img.icons8.com/color/48/000000/terraform.png" alt="Terraform"/>
+  </a>
+  <a href="https://www.ansible.com/">
+    <img src="https://img.icons8.com/color/48/000000/ansible.png" alt="Ansible"/>
+  </a>
 </p>
 
 If infrastructure can’t be recreated from code, I don’t trust it.
 
 I use Terraform and Ansible to:
-- Provision cloud infrastructure safely
-- Maintain consistent environments
+- Provision infrastructure safely
+- Keep environments consistent
 - Avoid “it worked last time” disasters
 
-Infrastructure should be boring. Chaos is for debugging, not provisioning.
+Infrastructure should be boring.
 
 ---
 
 ## 🐳 Containers & Deployments (Shipping Without Fear)
 
 <p>
-  <a href="https://www.docker.com/"><img src="https://img.icons8.com/color/48/000000/docker.png" alt="Docker"/></a>
-  <a href="https://coolify.io/"><img src="https://img.icons8.com/color/48/000000/docker.png" alt="Coolify"/></a>
+  <a href="https://www.docker.com/">
+    <img src="https://img.icons8.com/color/48/000000/docker.png" alt="Docker"/>
+  </a>
+  <a href="https://coolify.io/">
+    <img src="https://img.icons8.com/color/48/000000/docker.png" alt="Coolify"/>
+  </a>
 </p>
 
 I containerize applications so:
 - They behave the same everywhere
 - Deployments are repeatable
-- Rollbacks exist (and actually work)
+- Rollbacks actually exist
 
-Staging and production are treated like adults — no surprises.
+Staging and production are treated like adults.
 
 ---
 
 ## 🚀 CI/CD (Because Manual Deployments Are Trust Issues)
 
 <p>
-  <a href="https://github.com/features/actions"><img src="https://img.icons8.com/fluent/48/000000/github.png" alt="GitHub Actions"/></a>
+  <a href="https://github.com/features/actions">
+    <img src="https://img.icons8.com/fluent/48/000000/github.png" alt="GitHub Actions"/>
+  </a>
 </p>
 
-I design CI/CD pipelines that:
+I design pipelines that:
 - Reduce deployment time
 - Increase release frequency
 - Lower stress levels across teams
 
-If a pipeline fails, it tells you **why** — not just that it did.
+Failures explain themselves.
+
+---
+
+## 🎨 Frontend & UI/UX (Because Users See This Stuff)
+
+<p>
+  <a href="https://react.dev/">
+    <img src="https://img.icons8.com/color/48/000000/react-native.png" alt="React"/>
+  </a>
+  <a href="https://nextjs.org/">
+    <img src="https://img.icons8.com/color/48/000000/nextjs.png" alt="Next.js"/>
+  </a>
+  <a href="https://tailwindcss.com/">
+    <img src="https://img.icons8.com/color/48/000000/tailwindcss.png" alt="Tailwind CSS"/>
+  </a>
+  <a href="https://www.figma.com/">
+    <img src="https://img.icons8.com/color/48/000000/figma.png" alt="Figma"/>
+  </a>
+</p>
+
+I build frontends that:
+- Load fast (performance **is** UX)
+- Scale cleanly with backend systems
+- Don’t fall apart in production
+- Respect real users
+
+Frontend work is DevOps-aware:
+- Env-based builds
+- Secure auth flows
+- Clean API contracts
+- Zero “works on localhost” drama
+
+---
+
+## 🧩 UI/UX Engineering (Pretty Is Not Enough)
+
+I approach UI/UX like infrastructure:
+- Consistency over chaos
+- Clarity over cleverness
+- Usability over ego
+
+Focus areas:
+- Component-driven design
+- Logical user journeys
+- Accessibility
+- Mobile-first layouts
+- Maintainable design systems
+
+Design decisions respect reality — not Dribbble fantasies.
 
 ---
 
 ## 📊 Monitoring & Observability (Guessing Is Not Monitoring)
 
 <p>
-  <a href="https://aws.amazon.com/cloudwatch/"><img src="https://img.icons8.com/color/48/000000/monitor.png" alt="CloudWatch"/></a>
-  <a href="https://grafana.com/"><img src="https://img.icons8.com/color/48/000000/grafana.png" alt="Grafana"/></a>
-  <a href="https://prometheus.io/"><img src="https://img.icons8.com/color/48/000000/activity.png" alt="Prometheus"/></a>
+  <a href="https://aws.amazon.com/cloudwatch/">
+    <img src="https://img.icons8.com/color/48/000000/monitor.png" alt="CloudWatch"/>
+  </a>
+  <a href="https://grafana.com/">
+    <img src="https://img.icons8.com/color/48/000000/grafana.png" alt="Grafana"/>
+  </a>
+  <a href="https://prometheus.io/">
+    <img src="https://img.icons8.com/color/48/000000/activity.png" alt="Prometheus"/>
+  </a>
 </p>
 
-I set up monitoring so:
-- Issues are detected early
-- MTTR goes down
-- Nobody finds out from Twitter first
-
-Dashboards > assumptions.
+Dashboards > assumptions.  
+Twitter should never be your alerting system.
 
 ---
 
 ## 🐧 Linux Administration (Where Things Actually Run)
 
 <p>
-  <a href="https://ubuntu.com/"><img src="https://img.icons8.com/color/48/000000/ubuntu.png" alt="Ubuntu"/></a>
-  <a href="https://www.debian.org/"><img src="https://img.icons8.com/color/48/000000/debian.png" alt="Debian"/></a>
-  <a href="https://www.redhat.com/"><img src="https://img.icons8.com/color/48/000000/red-hat.png" alt="Red Hat"/></a>
+  <a href="https://ubuntu.com/">
+    <img src="https://img.icons8.com/color/48/000000/ubuntu.png" alt="Ubuntu"/>
+  </a>
+  <a href="https://www.debian.org/">
+    <img src="https://img.icons8.com/color/48/000000/debian.png" alt="Debian"/>
+  </a>
+  <a href="https://www.redhat.com/">
+    <img src="https://img.icons8.com/color/48/000000/red-hat.png" alt="Red Hat"/>
+  </a>
 </p>
 
 Linux is home.
-
-I manage servers, tune performance, debug logs, and fix problems that start with:
-> “It was working yesterday…”
 
 ---
 
 ## 🗄️ Databases & Backend Services
 
 <p>
-  <a href="https://www.mysql.com/"><img src="https://img.icons8.com/color/48/000000/mysql-logo.png" alt="MySQL"/></a>
-  <a href="https://supabase.com/"><img src="https://img.icons8.com/color/48/000000/supabase.png" alt="Supabase"/></a>
-  <a href="https://www.mongodb.com/"><img src="https://img.icons8.com/color/48/000000/mongodb.png" alt="MongoDB"/></a>
+  <a href="https://www.mysql.com/">
+    <img src="https://img.icons8.com/color/48/000000/mysql-logo.png" alt="MySQL"/>
+  </a>
+  <a href="https://supabase.com/">
+    <img src="https://img.icons8.com/color/48/000000/supabase.png" alt="Supabase"/>
+  </a>
+  <a href="https://www.mongodb.com/">
+    <img src="https://img.icons8.com/color/48/000000/mongodb.png" alt="MongoDB"/>
+  </a>
 </p>
 
-I don’t just deploy databases — I make sure they:
-- Are backed up
-- Are secure
-- Don’t become the bottleneck
+Backups exist.  
+Security matters.  
+Latency is watched.
 
 ---
 
-## 🧠 Leadership & Delivery (Yes, I Manage Things Too)
+## 🧠 Leadership & Delivery
 
 <p>
-  <a href="https://linear.app/"><img src="https://img.icons8.com/color/48/000000/task.png" alt="Linear"/></a>
-  <a href="https://www.notion.so/"><img src="https://img.icons8.com/color/48/000000/notion.png" alt="Notion"/></a>
-  <a href="https://slack.com/"><img src="https://img.icons8.com/color/48/000000/slack-new.png" alt="Slack"/></a>
+  <a href="https://linear.app/">
+    <img src="https://img.icons8.com/color/48/000000/task.png" alt="Linear"/>
+  </a>
+  <a href="https://www.notion.so/">
+    <img src="https://img.icons8.com/color/48/000000/notion.png" alt="Notion"/>
+  </a>
+  <a href="https://slack.com/">
+    <img src="https://img.icons8.com/color/48/000000/slack-new.png" alt="Slack"/>
+  </a>
 </p>
 
-Along with DevOps, I:
-- Lead infrastructure planning for multiple products
-- Guide developers on deployment and production readiness
-- Coordinate releases across teams
-- Make sure things ship on time and in one piece
-
-I manage projects so engineers can focus on engineering.
+I plan, ship, coordinate, and unblock so teams can build.
 
 ---
 
-## 🧰 Full Tech Stack (Because Recruiters Scroll)
+## 🧰 Full Tech Stack
 
 ### Languages
 <p>
-  <a href="https://www.python.org/"><img src="https://img.icons8.com/color/48/000000/python.png" alt="Python"/></a>
-  <a href="https://www.gnu.org/software/bash/"><img src="https://img.icons8.com/color/48/000000/console.png" alt="Shell"/></a>
-  <a href="https://www.json.org/"><img src="https://img.icons8.com/color/48/000000/json.png" alt="JSON"/></a>
+  <img src="https://img.icons8.com/color/48/000000/python.png"/>
+  <img src="https://img.icons8.com/color/48/000000/console.png"/>
+  <img src="https://img.icons8.com/color/48/000000/json.png"/>
 </p>
 
 ### Version Control
 <p>
-  <a href="https://git-scm.com/"><img src="https://img.icons8.com/color/48/000000/git.png" alt="Git"/></a>
-  <a href="https://github.com/"><img src="https://img.icons8.com/fluent/48/000000/github.png" alt="GitHub"/></a>
+  <img src="https://img.icons8.com/color/48/000000/git.png"/>
+  <img src="https://img.icons8.com/fluent/48/000000/github.png"/>
 </p>
 
 ---
 
-## 📬 Let’s Connect (If You Like Stable Systems)
+## 📬 Let’s Connect
 
 <p>
-  <a href="https://www.instagram.com/ni8hin/"><img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="Instagram"/></a>
-  <a href="https://www.linkedin.com/in/ni8hin/"><img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="LinkedIn"/></a>
-  <a href="https://x.com/ni8hin_"><img src="https://img.icons8.com/color/48/000000/twitter.png" alt="Twitter/X"/></a>
-  <a href="https://github.com/ni8hin"><img src="https://img.icons8.com/fluent/48/000000/github.png" alt="GitHub"/></a>
-  <a href="https://medium.com/@ni8hin"><img src="https://img.icons8.com/color/48/000000/medium-monogram.png" alt="Medium"/></a>
-  <a href="mailto:nidhinbabukuttan@gmail.com"><img src="https://img.icons8.com/color/48/000000/gmail.png" alt="Gmail"/></a>
+  <a href="https://www.instagram.com/ni8hin/"><img src="https://img.icons8.com/color/48/000000/instagram-new.png"/></a>
+  <a href="https://www.linkedin.com/in/ni8hin/"><img src="https://img.icons8.com/color/48/000000/linkedin.png"/></a>
+  <a href="https://x.com/ni8hin_"><img src="https://img.icons8.com/color/48/000000/twitter.png"/></a>
+  <a href="https://github.com/ni8hin"><img src="https://img.icons8.com/fluent/48/000000/github.png"/></a>
+  <a href="https://medium.com/@ni8hin"><img src="https://img.icons8.com/color/48/000000/medium-monogram.png"/></a>
+  <a href="mailto:nidhinbabukuttan@gmail.com"><img src="https://img.icons8.com/color/48/000000/gmail.png"/></a>
 </p>
 
 ---
