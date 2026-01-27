@@ -1,0 +1,29 @@
+name: Daily Activity Commit
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs at exactly midnight UTC every day
+  workflow_dispatch: # Allows you to trigger it manually for testing
+
+jobs:
+  auto-commit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          persist-credentials: true
+      
+      - name: Update Life Signal
+        run: |
+          DATE=$(date +'%Y-%m-%d %H:%M:%S')
+          sed -i "s/<!-- life_signal.* -->/<!-- life_signal: $DATE -->/" README.md
+          
+      - name: Commit and Push
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "chore: status update 👋 [skip ci]" || echo "No changes to commit"
+          git push
