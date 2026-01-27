@@ -78,6 +78,8 @@ Right now, I'm diving deep into:
     <img height="195" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ni8hin&layout=compact&theme=nightowl&border_radius=10&border_color=36BCF7&bg_color=0D1117" />
   </p>
   <img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=ni8hin&theme=react-dark&hide_border=false&area=true&bg_color=0D1117" />
+  <br/>
+  <img src="https://raw.githubusercontent.com/ni8hin/ni8hin/output/github-contribution-grid-snake.svg" alt="Snake animation" width="100%" />
 </div>
 
 ---
