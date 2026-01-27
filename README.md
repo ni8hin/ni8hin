@@ -76,11 +76,11 @@ Right now, I'm diving deep into:
 <!-- START_STATS -->
 | 🧩 Engineering Metrics | 📊 Value |
 | :--- | :--- |
-| 🚀 **Total Commits** | 0 |
-| 🛠️ **Pull Requests** | 0 |
+| 🚀 **Total Commits** | 297 |
+| 🛠️ **Pull Requests** | 6 |
 | 🐛 **Issues Opened** | 0 |
-| ⭐ **Stars Earned** | 0 |
-| 📚 **Repositories** | 0 |
+| ⭐ **Stars Earned** | 2 |
+| 📚 **Repositories** | 24 |
 <!-- END_STATS -->
 
 <br/>
