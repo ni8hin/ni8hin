@@ -70,7 +70,7 @@ Right now, I'm diving deep into:
 
 ---
 
-### 📊 Nidhin's GitHub Statistics (2026) (2026)
+### 📊 Nidhin's GitHub Statistics
 
 <div align="center">
 

@@ -72,8 +72,8 @@ jobs:
           EST_REMOVED=$((COMMITS * 50))
 
           # Update the professional table using sed
-          # We update the header to reflect the current year
-          sed -i "s/Nidhin's GitHub Statistics/Nidhin's GitHub Statistics ($YEAR)/" README.md
+          # Ensure the header includes the correct year without doubling up
+          sed -i "s/Nidhin's GitHub Statistics.*$/Nidhin's GitHub Statistics ($YEAR)/" README.md
           
           sed -i "s/\*\*Total Commits\*\* | \*\*[0-9]*\*\*/\*\*Total Commits\*\* | \*\*$COMMITS\*\*/" README.md
           sed -i "s/\*\*Pull Requests\*\* | \*\*[0-9]*\*\*/\*\*Pull Requests\*\* | \*\*$PRS\*\*/" README.md
