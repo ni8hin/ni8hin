@@ -24,32 +24,25 @@ jobs:
           # Options
           user: ni8hin
           template: classic
-          base: "" # Removes the generic header/follow count
+          config_theme: dark # Switched to Dark Theme
+          base: activity, community, repositories
+          base_indepth: yes # Shows detailed numbers
           config_timezone: Asia/Kolkata
           
-          # Lines of Code (The metric you wanted)
+          # Lines of Code (Life-time stats)
           plugin_lines: yes
-          plugin_lines_sections: base
           
-          # Languages (Compact Version)
+          # Languages (Sleek Horizontal Bar)
           plugin_languages: yes
-          plugin_languages_ignored: >-
-            html, css, tex, less, dockerfile, makefile, qmake, lex, cmake, shell,
-            gnuplot
-          plugin_languages_details: percentage
-          plugin_languages_limit: 8
           plugin_languages_sections: most-used
+          plugin_languages_details: percentage
+          plugin_languages_limit: 5
           
-          # High-value stats
-          plugin_followup: yes
-          plugin_followup_sections: user
-          
-          # Compact Achievements (Looks like a "rank" system)
+          # Activity Rank/Badges (Compact)
           plugin_achievements: yes
           plugin_achievements_threshold: B
           plugin_achievements_display: compact
           
-          # Notable contributions
-          plugin_notable: yes
-          plugin_notable_from: all
-          plugin_notable_types: commit
+          # High-value stats only
+          plugin_followup: yes
+          plugin_followup_sections: user
