@@ -73,15 +73,18 @@ Right now, I'm diving deep into:
 ### 📊 Vital Signs & Contribution Flow
 
 <!-- IMPORTANT: Ensure you have added METRICS_TOKEN (with 'repo' scope) to your repository secrets for private stats to show up! -->
-<div align="center">
-  <img width="100%" src="github-metrics.svg" alt="Detailed Metrics" />
-  <br/><br/>
+<!-- START_STATS -->
+| 🧩 Engineering Metrics | 📊 Value |
+| :--- | :--- |
+| 🚀 **Total Commits** | 0 |
+| 🛠️ **Pull Requests** | 0 |
+| 🐛 **Issues Opened** | 0 |
+| ⭐ **Stars Earned** | 0 |
+| 📚 **Repositories** | 0 |
+<!-- END_STATS -->
 
-  <p align="center">
-    <img height="195" src="https://github-readme-stats.vercel.app/api?username=ni8hin&show_icons=true&theme=nightowl&count_private=true&border_radius=10&border_color=36BCF7&bg_color=0D1117" />
-    <img height="195" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ni8hin&layout=compact&theme=nightowl&count_private=true&border_radius=10&border_color=36BCF7&bg_color=0D1117" />
-  </p>
-  <img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=ni8hin&theme=react-dark&hide_border=false&area=true&count_private=true&bg_color=0D1117" />
+<br/>
+
   <br/>
   <img src="https://raw.githubusercontent.com/ni8hin/ni8hin/output/github-contribution-grid-snake.svg" alt="Snake animation" width="100%" />
 </div>

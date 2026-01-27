@@ -1,0 +1,63 @@
+name: Update Stats Table
+on:
+  schedule:
+    - cron: '0 */6 * * *' # Every 6 hours
+  workflow_dispatch:
+  push:
+    branches: [ "main", "master" ]
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Fetch Stats
+        env:
+          GITHUB_TOKEN: ${{ secrets.METRICS_TOKEN }}
+        run: |
+          # Use GraphQL to get comprehensive stats including private
+          QUERY='query {
+            viewer {
+              repositories(first: 100, ownerAffiliations: OWNER) {
+                totalCount
+                nodes {
+                  stargazerCount
+                }
+              }
+              pullRequests(first: 1) {
+                totalCount
+              }
+              issues(first: 1) {
+                totalCount
+              }
+              contributionsCollection {
+                totalCommitContributions
+              }
+            }
+          }'
+          
+          RESPONSE=$(gh api graphql -f query="$QUERY")
+          
+          COMMITS=$(echo $RESPONSE | jq '.data.viewer.contributionsCollection.totalCommitContributions')
+          PRS=$(echo $RESPONSE | jq '.data.viewer.pullRequests.totalCount')
+          ISSUES=$(echo $RESPONSE | jq '.data.viewer.issues.totalCount')
+          REPOS=$(echo $RESPONSE | jq '.data.viewer.repositories.totalCount')
+          STARS=$(echo $RESPONSE | jq '.data.viewer.repositories.nodes | map(.stargazerCount) | add')
+
+          # Update the README table using sed
+          sed -i "s/🚀 \*\*Total Commits\*\* | [0-9]*/🚀 **Total Commits** | $COMMITS/" README.md
+          sed -i "s/🛠️ \*\*Pull Requests\*\* | [0-9]*/🛠️ **Pull Requests** | $PRS/" README.md
+          sed -i "s/🐛 \*\*Issues Opened\*\* | [0-9]*/🐛 **Issues Opened** | $ISSUES/" README.md
+          sed -i "s/⭐ \*\*Stars Earned\*\* | [0-9]*/⭐ **Stars Earned** | $STARS/" README.md
+          sed -i "s/📚 \*\*Repositories\*\* | [0-9]*/📚 **Repositories** | $REPOS/" README.md
+
+      - name: Commit changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "chore: update stats table [skip ci]" || echo "No changes to commit"
+          git push
