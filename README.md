@@ -1,270 +1,102 @@
-# I make deployments boring and production reliable
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/22107794/139580686-887df369-edb8-4bc8-b607-4fbf6d7e4866.gif" alt="Coding Geek" width="100%" />
+</div>
 
-</br>
+<div align="center">
+  <h1>Nidhin • Production Babysitter™</h1>
+  <p><b>Cloud Solutions Architect | DevOps Lead | Frontend & UI/UX Engineer</b></p>
+  
+  <p align="center">
+    <img src="https://komarev.com/ghpvc/?username=ni8hin&label=STALKER%20COUNT&color=36BCF7&style=for-the-badge" />
+  </p>
+  
+  <p align="center">
+    <a href="https://linkedin.com/in/ni8hin"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+    <a href="https://x.com/ni8hin_"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" /></a>
+    <a href="mailto:nidhinbabukuttan@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a>
+  </p>
+</div>
+
+<br/>
+
+<div align="center">
+  <table border="0" cellpadding="20" cellspacing="0" width="100%">
+    <tr>
+      <td align="center" width="33%" valign="top">
+        <img src="https://img.icons8.com/plasticine/100/compass.png" alt="Architect" width="90" /><br/>
+        <h3><b>Architect</b></h3>
+        <p>Designing scaleable, resilient systems that don't sleep (so you can).</p>
+      </td>
+      <td align="center" width="33%" valign="top">
+        <img src="https://img.icons8.com/plasticine/100/bot.png" alt="Automate" width="90" /><br/>
+        <h3><b>Automate</b></h3>
+        <p>Turning ClickOps into Code. If it's manual, it's already broken.</p>
+      </td>
+      <td align="center" width="33%" valign="top">
+        <img src="https://img.icons8.com/plasticine/100/rocket.png" alt="Deliver" width="90" /><br/>
+        <h3><b>Deliver</b></h3>
+        <p>Pixel-perfect frontends built with performance as a first-class citizen.</p>
+      </td>
+    </tr>
+  </table>
+</div>
+
+---
+
+### 🧠 Profile of a Production Babysitter
+
+I don't just "build" things; I ensure they thrive in the wild. Working at **Psypher AI**, I sit at the intersection of development and stability. My goal is to make deployments so boring that you forget they even happened.
+
+- **The Philosophy**: ClickOps is a technical debt factory. If it isn't in Terraform/Ansible, it's just a temporary hallucination.
+- **The Process**: Observability > Assumptions. If we don't have a dashboard for it, it isn't working correctly.
+- **The UX**: Performance is a feature. A 2-second load time is a 2-second usability failure.
+
+---
+
+### 🛠️ Technical Arsenal
+
+<div align="center">
+  <img src="https://skillicons.dev/icons?i=aws,gcp,azure,terraform,ansible,docker,kubernetes,linux,bash,githubactions,jenkins,react,nextjs,ts,tailwind,figma,nodejs,express,python,django,postgres,mongodb,redis,supabase&perline=12" />
+</div>
+
+---
+
+### 🧪 Current Lab Experiments
+
+Right now, I'm diving deep into:
+- **Zero-Trust Monitoring**: Hardening Netdata & Grafana deployments via OAuth2 proxies and Tailscale.
+- **Self-Hosted Cloud**: Optimizing deployments on Coolify to minimize dependency on "Big Cloud" while keeping "Big Cloud" performance.
+- **State-Aware UI**: Building React systems that handle high-latency edge cases without bothering the user.
+
+---
+
+### 📊 Vital Signs & Contribution Flow
+
+<div align="center">
+  <p align="center">
+    <img height="195" src="https://github-readme-stats.vercel.app/api?username=ni8hin&show_icons=true&theme=nightowl&count_private=true&border_radius=10&border_color=36BCF7&bg_color=0D1117" />
+    <img height="195" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ni8hin&layout=compact&theme=nightowl&border_radius=10&border_color=36BCF7&bg_color=0D1117" />
+  </p>
+  <img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=ni8hin&theme=react-dark&hide_border=false&area=true&bg_color=0D1117" />
+</div>
+
+---
+
+### 📬 Let's Talk Ops (or coffee)
+
+Whether you're looking to scale your infrastructure, automate your headaches away, or just want to chat about why `chmod 777` is a cry for help, my inbox is open.
+
+<div align="center">
+  <a href="https://linkedin.com/in/ni8hin"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+  <a href="https://x.com/ni8hin_"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" /></a>
+  <a href="mailto:nidhinbabukuttan@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a>
+  <a href="https://github.com/ni8hin"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" /></a>
+</div>
+
+<br/>
+
+<br/>
+
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=ni8hin&label=PROFILE+VIEWS&color=blueviolet&style=for-the-badge"/>
-  <a href="https://github.com/ni8hin">
-    <img src="https://img.shields.io/github/followers/ni8hin?label=FOLLOW&style=for-the-badge&logo=github"/>
-  </a>
-  <a href="https://www.linkedin.com/in/ni8hin/">
-    <img src="https://img.shields.io/badge/LINKEDIN-CONNECT-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
-  </a>
-  <a href="https://www.instagram.com/ni8hin/">
-    <img src="https://img.shields.io/badge/INSTAGRAM-FOLLOW-E4405F?style=for-the-badge&logo=instagram&logoColor=white"/>
-  </a>
+  <sub><i>Disclaimer: Side effects of working with me include deployments that don't fail and a sudden urge to delete your manual scripts.</i></sub>
 </p>
-</br>
-
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/22107794/139580686-887df369-edb8-4bc8-b607-4fbf6d7e4866.gif" alt="Coding Geek" />
-</p>
-
-## Cloud Solutions Architect | Lead DevOps Engineer | Frontend & UI/UX Engineer | AWS | Linux | Professional Production Babysitter™
-
-👋 Hi, I’m **Nidhin**.
-
-I design systems so:
-- Deployments don’t panic  
-- Production doesn’t surprise anyone  
-- Developers ship faster without breaking things  
-- AWS bills don’t require emotional support  
-
-Currently working at **Psypher AI**, handling cloud architecture, DevOps, frontend delivery, and the occasional  
-**“why is this down?”** conversation.
-
----
-
-## ☁️ AWS Cloud (Yes, I Check the Bill)
-
-<p>
-  <a href="https://aws.amazon.com/">
-    <img src="https://img.icons8.com/color/48/000000/amazon-web-services.png" alt="AWS"/>
-  </a>
-</p>
-
-I architect and manage AWS infrastructure with a focus on:
-- High availability (things stay up)
-- Cost optimization (things don’t get expensive for no reason)
-- Secure networking and IAM
-- Scalability that survives real users
-
-Automation > heroics.
-
----
-
-## 🏗️ Infrastructure as Code (ClickOps Is a Crime)
-
-<p>
-  <a href="https://www.terraform.io/">
-    <img src="https://img.icons8.com/color/48/000000/terraform.png" alt="Terraform"/>
-  </a>
-  <a href="https://www.ansible.com/">
-    <img src="https://img.icons8.com/color/48/000000/ansible.png" alt="Ansible"/>
-  </a>
-</p>
-
-If infrastructure can’t be recreated from code, I don’t trust it.
-
-I use Terraform and Ansible to:
-- Provision infrastructure safely
-- Keep environments consistent
-- Avoid “it worked last time” disasters
-
-Infrastructure should be boring.
-
----
-
-## 🐳 Containers & Deployments (Shipping Without Fear)
-
-<p>
-  <a href="https://www.docker.com/">
-    <img src="https://img.icons8.com/color/48/000000/docker.png" alt="Docker"/>
-  </a>
-  <a href="https://coolify.io/">
-    <img src="https://img.icons8.com/color/48/000000/docker.png" alt="Coolify"/>
-  </a>
-</p>
-
-I containerize applications so:
-- They behave the same everywhere
-- Deployments are repeatable
-- Rollbacks actually exist
-
-Staging and production are treated like adults.
-
----
-
-## 🚀 CI/CD (Because Manual Deployments Are Trust Issues)
-
-<p>
-  <a href="https://github.com/features/actions">
-    <img src="https://img.icons8.com/fluent/48/000000/github.png" alt="GitHub Actions"/>
-  </a>
-</p>
-
-I design pipelines that:
-- Reduce deployment time
-- Increase release frequency
-- Lower stress levels across teams
-
-Failures explain themselves.
-
----
-
-## 🎨 Frontend & UI/UX (Because Users See This Stuff)
-
-<p>
-  <a href="https://react.dev/">
-    <img src="https://img.icons8.com/color/48/000000/react-native.png" alt="React"/>
-  </a>
-  <a href="https://nextjs.org/">
-    <img src="https://img.icons8.com/color/48/000000/nextjs.png" alt="Next.js"/>
-  </a>
-  <a href="https://tailwindcss.com/">
-    <img src="https://img.icons8.com/color/48/000000/tailwindcss.png" alt="Tailwind CSS"/>
-  </a>
-  <a href="https://www.figma.com/">
-    <img src="https://img.icons8.com/color/48/000000/figma.png" alt="Figma"/>
-  </a>
-</p>
-
-I build frontends that:
-- Load fast (performance **is** UX)
-- Scale cleanly with backend systems
-- Don’t fall apart in production
-- Respect real users
-
-Frontend work is DevOps-aware:
-- Env-based builds
-- Secure auth flows
-- Clean API contracts
-- Zero “works on localhost” drama
-
----
-
-## 🧩 UI/UX Engineering (Pretty Is Not Enough)
-
-I approach UI/UX like infrastructure:
-- Consistency over chaos
-- Clarity over cleverness
-- Usability over ego
-
-Focus areas:
-- Component-driven design
-- Logical user journeys
-- Accessibility
-- Mobile-first layouts
-- Maintainable design systems
-
-Design decisions respect reality — not Dribbble fantasies.
-
----
-
-## 📊 Monitoring & Observability (Guessing Is Not Monitoring)
-
-<p>
-  <a href="https://aws.amazon.com/cloudwatch/">
-    <img src="https://img.icons8.com/color/48/000000/monitor.png" alt="CloudWatch"/>
-  </a>
-  <a href="https://grafana.com/">
-    <img src="https://img.icons8.com/color/48/000000/grafana.png" alt="Grafana"/>
-  </a>
-  <a href="https://prometheus.io/">
-    <img src="https://img.icons8.com/color/48/000000/activity.png" alt="Prometheus"/>
-  </a>
-</p>
-
-Dashboards > assumptions.  
-Twitter should never be your alerting system.
-
----
-
-## 🐧 Linux Administration (Where Things Actually Run)
-
-<p>
-  <a href="https://ubuntu.com/">
-    <img src="https://img.icons8.com/color/48/000000/ubuntu.png" alt="Ubuntu"/>
-  </a>
-  <a href="https://www.debian.org/">
-    <img src="https://img.icons8.com/color/48/000000/debian.png" alt="Debian"/>
-  </a>
-  <a href="https://www.redhat.com/">
-    <img src="https://img.icons8.com/color/48/000000/red-hat.png" alt="Red Hat"/>
-  </a>
-</p>
-
-Linux is home.
-
----
-
-## 🗄️ Databases & Backend Services
-
-<p>
-  <a href="https://www.mysql.com/">
-    <img src="https://img.icons8.com/color/48/000000/mysql-logo.png" alt="MySQL"/>
-  </a>
-  <a href="https://supabase.com/">
-    <img src="https://img.icons8.com/color/48/000000/supabase.png" alt="Supabase"/>
-  </a>
-  <a href="https://www.mongodb.com/">
-    <img src="https://img.icons8.com/color/48/000000/mongodb.png" alt="MongoDB"/>
-  </a>
-</p>
-
-Backups exist.  
-Security matters.  
-Latency is watched.
-
----
-
-## 🧠 Leadership & Delivery
-
-<p>
-  <a href="https://linear.app/">
-    <img src="https://img.icons8.com/color/48/000000/task.png" alt="Linear"/>
-  </a>
-  <a href="https://www.notion.so/">
-    <img src="https://img.icons8.com/color/48/000000/notion.png" alt="Notion"/>
-  </a>
-  <a href="https://slack.com/">
-    <img src="https://img.icons8.com/color/48/000000/slack-new.png" alt="Slack"/>
-  </a>
-</p>
-
-I plan, ship, coordinate, and unblock so teams can build.
-
----
-
-## 🧰 Full Tech Stack
-
-### Languages
-<p>
-  <img src="https://img.icons8.com/color/48/000000/python.png"/>
-  <img src="https://img.icons8.com/color/48/000000/console.png"/>
-  <img src="https://img.icons8.com/color/48/000000/json.png"/>
-</p>
-
-### Version Control
-<p>
-  <img src="https://img.icons8.com/color/48/000000/git.png"/>
-  <img src="https://img.icons8.com/fluent/48/000000/github.png"/>
-</p>
-
----
-
-## 📬 Let’s Connect
-
-<p>
-  <a href="https://www.instagram.com/ni8hin/"><img src="https://img.icons8.com/color/48/000000/instagram-new.png"/></a>
-  <a href="https://www.linkedin.com/in/ni8hin/"><img src="https://img.icons8.com/color/48/000000/linkedin.png"/></a>
-  <a href="https://x.com/ni8hin_"><img src="https://img.icons8.com/color/48/000000/twitter.png"/></a>
-  <a href="https://github.com/ni8hin"><img src="https://img.icons8.com/fluent/48/000000/github.png"/></a>
-  <a href="https://medium.com/@ni8hin"><img src="https://img.icons8.com/color/48/000000/medium-monogram.png"/></a>
-  <a href="mailto:nidhinbabukuttan@gmail.com"><img src="https://img.icons8.com/color/48/000000/gmail.png"/></a>
-</p>
-
----
-
-⚠️ *Disclaimer:*  
-I automate things so I don’t have to fix them twice.  
-If something breaks, there’s probably a dashboard explaining why.
