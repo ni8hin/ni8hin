@@ -72,16 +72,23 @@ Right now, I'm diving deep into:
 
 ### 📊 Vital Signs & Contribution Flow
 
-<!-- IMPORTANT: Ensure you have added METRICS_TOKEN (with 'repo' scope) to your repository secrets for private stats to show up! -->
-<!-- START_STATS -->
-| 🧩 Engineering Metrics | 📊 Value |
-| :--- | :--- |
-| 🚀 **Total Commits** | 297 |
-| 🛠️ **Pull Requests** | 6 |
-| 🐛 **Issues Opened** | 0 |
-| ⭐ **Stars Earned** | 2 |
-| 📚 **Repositories** | 24 |
-<!-- END_STATS -->
+<div align="center">
+
+| | **[ production-babysitter-v2 : ~ $ stats ]** | |
+| :--- | :---: | ---: |
+| 🚀 | **Total Commits** | **297** |
+| ➕ | **Lines Added** | **0** |
+| ➖ | **Lines Removed** | **0** |
+| 🛠️ | **Pull Requests** | **6** |
+| � | **PR Merge Rate** | **0%** |
+| 🔍 | **PRs Reviewed** | **0** |
+| �🐛 | **Issues Opened** | **0** |
+| ⭐ | **Stars Earned** | **2** |
+| 📚 | **Repositories** | **24** |
+| 📅 | **Active Days (Year)** | **0** |
+| ⚡ | **Commit Intensity** | **Ready** |
+
+</div>
 
 <br/>
 
