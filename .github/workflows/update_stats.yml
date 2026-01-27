@@ -14,54 +14,72 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Fetch Professional Stats
+      - name: Fetch Professional Yearly Stats
         env:
           GITHUB_TOKEN: ${{ secrets.METRICS_TOKEN }}
         run: |
-          # Query for key engineering metrics
-          QUERY='query {
+          # Calculate current year and date range
+          YEAR=$(date +%Y)
+          FROM_DATE="${YEAR}-01-01T00:00:00Z"
+          # Get current date in ISO format for the API
+          TO_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+
+          # Query for yearly engineering metrics
+          QUERY="query(\$from: DateTime!, \$to: DateTime!) {
             viewer {
-              repositories(first: 100, ownerAffiliations: OWNER) {
-                totalCount
-                nodes {
-                  stargazerCount
-                }
-              }
-              pullRequests(first: 100) {
-                totalCount
-              }
-              contributionsCollection {
+              contributionsCollection(from: \$from, to: \$to) {
                 totalCommitContributions
+                totalPullRequestContributions
+                totalIssueContributions
+                totalPullRequestReviewContributions
                 contributionCalendar {
+                  totalContributions
                   weeks {
                     contributionDays {
                       contributionCount
+                      date
                     }
                   }
                 }
               }
+              repositories(first: 100, ownerAffiliations: OWNER) {
+                totalCount
+                nodes {
+                  stargazerCount
+                  createdAt
+                }
+              }
             }
-          }'
+          }"
           
-          RESPONSE=$(gh api graphql -f query="$QUERY")
+          RESPONSE=$(gh api graphql -f query="$QUERY" -f from="$FROM_DATE" -f to="$TO_DATE")
           
-          # Basic Stats
+          # Yearly Activity Stats
           COMMITS=$(echo $RESPONSE | jq '.data.viewer.contributionsCollection.totalCommitContributions')
-          PRS=$(echo $RESPONSE | jq '.data.viewer.pullRequests.totalCount')
-          REPOS=$(echo $RESPONSE | jq '.data.viewer.repositories.totalCount')
-          STARS=$(echo $RESPONSE | jq '.data.viewer.repositories.nodes | map(.stargazerCount) | add // 0')
+          PRS=$(echo $RESPONSE | jq '.data.viewer.contributionsCollection.totalPullRequestContributions')
           ACTIVE_DAYS=$(echo $RESPONSE | jq '.data.viewer.contributionsCollection.contributionCalendar.weeks[].contributionDays[] | select(.contributionCount > 0)' | jq -s 'length')
+          
+          # Star count (Total stars remains lifetime as is standard, or we could filter for stars added this year if we had history)
+          # We'll stick to total stars earned but filter 'Repositories' to those created this year if desired, 
+          # however usually 'Repositories' in a year means 'Repositories worked on'.
+          # Let's count repos that had at least one contribution this year.
+          # For simplicity, we'll keep 'Repositories' as total but update the label to reflect the year context if needed.
+          TOTAL_REPOS=$(echo $RESPONSE | jq '.data.viewer.repositories.totalCount')
+          STARS=$(echo $RESPONSE | jq '.data.viewer.repositories.nodes | map(.stargazerCount) | add // 0')
 
-          # Line count estimation (professional averages)
+          # Line count estimation (Yearly engineering impact)
           EST_ADDED=$((COMMITS * 120)) 
           EST_REMOVED=$((COMMITS * 50))
 
           # Update the professional table using sed
+          # We update the header to reflect the current year
+          sed -i "s/Nidhin's GitHub Statistics/Nidhin's GitHub Statistics ($YEAR)/" README.md
+          
           sed -i "s/\*\*Total Commits\*\* | \*\*[0-9]*\*\*/\*\*Total Commits\*\* | \*\*$COMMITS\*\*/" README.md
           sed -i "s/\*\*Pull Requests\*\* | \*\*[0-9]*\*\*/\*\*Pull Requests\*\* | \*\*$PRS\*\*/" README.md
           sed -i "s/\*\*Lines of Code (Added)\*\* | \*\*[0-9]*\*\*/\*\*Lines of Code (Added)\*\* | \*\*$EST_ADDED\*\*/" README.md
           sed -i "s/\*\*Lines of Code (Removed)\*\* | \*\*[0-9]*\*\*/\*\*Lines of Code (Removed)\*\* | \*\*$EST_REMOVED\*\*/" README.md
-          sed -i "s/\*\*Repositories\*\* | \*\*[0-9]*\*\*/\*\*Repositories\*\* | \*\*$REPOS\*\*/" README.md
+          sed -i "s/\*\*Repositories\*\* | \*\*[0-9]*\*\*/\*\*Repositories\*\* | \*\*$TOTAL_REPOS\*\*/" README.md
           sed -i "s/\*\*Stars Earned\*\* | \*\*[0-9]*\*\*/\*\*Stars Earned\*\* | \*\*$STARS\*\*/" README.md
           sed -i "s/\*\*Active Contribution Days\*\* | \*\*[0-9]*\*\*/\*\*Active Contribution Days\*\* | \*\*$ACTIVE_DAYS\*\*/" README.md
 
@@ -70,5 +88,5 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
-          git commit -m "chore: professional stats update [skip ci]" || echo "No changes to commit"
+          git commit -m "chore: update yearly statistics [skip ci]" || echo "No changes to commit"
           git push
