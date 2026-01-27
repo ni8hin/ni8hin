@@ -70,19 +70,19 @@ Right now, I'm diving deep into:
 
 ---
 
-### 📊 Nidhin's GitHub Statistics (2026)
+### 📊 Nidhin's GitHub Statistics (2026) (2026)
 
 <div align="center">
 
 | Global Statistics | Engineering Impact |
 | :--- | :--- |
-| **Total Commits** | **0** |
+| **Total Commits** | **187** |
 | **Pull Requests** | **0** |
-| **Lines of Code (Added)** | **0** |
-| **Lines of Code (Removed)** | **0** |
+| **Lines of Code (Added)** | **22440** |
+| **Lines of Code (Removed)** | **9350** |
 | **Repositories** | **24** |
 | **Stars Earned** | **2** |
-| **Active Contribution Days** | **0** |
+| **Active Contribution Days** | **21** |
 
 </div>
 
