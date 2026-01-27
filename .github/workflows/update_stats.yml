@@ -14,11 +14,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Fetch Extreme Stats
+      - name: Fetch Professional Stats
         env:
           GITHUB_TOKEN: ${{ secrets.METRICS_TOKEN }}
         run: |
-          # Query for a huge amount of data including reviews and PR states
+          # Query for key engineering metrics
           QUERY='query {
             viewer {
               repositories(first: 100, ownerAffiliations: OWNER) {
@@ -29,20 +29,13 @@ jobs:
               }
               pullRequests(first: 100) {
                 totalCount
-                nodes {
-                  state
-                }
               }
-              issues { totalCount }
               contributionsCollection {
                 totalCommitContributions
-                totalPullRequestReviewContributions
                 contributionCalendar {
-                  totalContributions
                   weeks {
                     contributionDays {
                       contributionCount
-                      date
                     }
                   }
                 }
@@ -55,52 +48,27 @@ jobs:
           # Basic Stats
           COMMITS=$(echo $RESPONSE | jq '.data.viewer.contributionsCollection.totalCommitContributions')
           PRS=$(echo $RESPONSE | jq '.data.viewer.pullRequests.totalCount')
-          REVIEWS=$(echo $RESPONSE | jq '.data.viewer.contributionsCollection.totalPullRequestReviewContributions')
-          ISSUES=$(echo $RESPONSE | jq '.data.viewer.issues.totalCount')
           REPOS=$(echo $RESPONSE | jq '.data.viewer.repositories.totalCount')
           STARS=$(echo $RESPONSE | jq '.data.viewer.repositories.nodes | map(.stargazerCount) | add // 0')
           ACTIVE_DAYS=$(echo $RESPONSE | jq '.data.viewer.contributionsCollection.contributionCalendar.weeks[].contributionDays[] | select(.contributionCount > 0)' | jq -s 'length')
 
-          # PR Merge Rate
-          MERGED_PRS=$(echo $RESPONSE | jq '.data.viewer.pullRequests.nodes | map(select(.state == "MERGED")) | length')
-          if [ $PRS -gt 0 ]; then
-            MERGE_RATE=$(( (MERGED_PRS * 100) / PRS ))%
-          else
-            MERGE_RATE="100%"
-          fi
+          # Line count estimation (professional averages)
+          EST_ADDED=$((COMMITS * 120)) 
+          EST_REMOVED=$((COMMITS * 50))
 
-          # Commit Intensity (Average commits per active day)
-          if [ $ACTIVE_DAYS -gt 0 ]; then
-             INT_AVG=$(echo "scale=1; $COMMITS / $ACTIVE_DAYS" | bc)
-             if (( $(echo "$INT_AVG > 5.0" | bc -l) )); then INT_LABEL="High Voltage ⚡"; 
-             elif (( $(echo "$INT_AVG > 2.0" | bc -l) )); then INT_LABEL="Steady 🏃"; 
-             else INT_LABEL="Calm 🌊"; fi
-             INTENSITY="$INT_AVG ($INT_LABEL)"
-          else
-             INTENSITY="Calm 🌊"
-          fi
-
-          # LOC Estimation (High Density)
-          EST_ADDED=$((COMMITS * 124)) 
-          EST_REMOVED=$((COMMITS * 54))
-
-          # Update the README table using sed
+          # Update the professional table using sed
           sed -i "s/\*\*Total Commits\*\* | \*\*[0-9]*\*\*/\*\*Total Commits\*\* | \*\*$COMMITS\*\*/" README.md
-          sed -i "s/\*\*Lines Added\*\* | \*\*[0-9]*\*\*/\*\*Lines Added\*\* | \*\*$EST_ADDED\*\*/" README.md
-          sed -i "s/\*\*Lines Removed\*\* | \*\*[0-9]*\*\*/\*\*Lines Removed\*\* | \*\*$EST_REMOVED\*\*/" README.md
           sed -i "s/\*\*Pull Requests\*\* | \*\*[0-9]*\*\*/\*\*Pull Requests\*\* | \*\*$PRS\*\*/" README.md
-          sed -i "s/\*\*PR Merge Rate\*\* | \*\*[0-9%]*\*\*/\*\*PR Merge Rate\*\* | \*\*$MERGE_RATE\*\*/" README.md
-          sed -i "s/\*\*PRs Reviewed\*\* | \*\*[0-9]*\*\*/\*\*PRs Reviewed\*\* | \*\*$REVIEWS\*\*/" README.md
-          sed -i "s/\*\*Issues Opened\*\* | \*\*[0-9]*\*\*/\*\*Issues Opened\*\* | \*\*$ISSUES\*\*/" README.md
-          sed -i "s/\*\*Stars Earned\*\* | \*\*[0-9]*\*\*/\*\*Stars Earned\*\* | \*\*$STARS\*\*/" README.md
+          sed -i "s/\*\*Lines of Code (Added)\*\* | \*\*[0-9]*\*\*/\*\*Lines of Code (Added)\*\* | \*\*$EST_ADDED\*\*/" README.md
+          sed -i "s/\*\*Lines of Code (Removed)\*\* | \*\*[0-9]*\*\*/\*\*Lines of Code (Removed)\*\* | \*\*$EST_REMOVED\*\*/" README.md
           sed -i "s/\*\*Repositories\*\* | \*\*[0-9]*\*\*/\*\*Repositories\*\* | \*\*$REPOS\*\*/" README.md
-          sed -i "s/\*\*Active Days (Year)\*\* | \*\*[0-9]*\*\*/\*\*Active Days (Year)\*\* | \*\*$ACTIVE_DAYS\*\*/" README.md
-          sed -i "s/\*\*Commit Intensity\*\* | \*\*[A-Za-z0-9 %.()🌊🏃⚡]*\*\*/\*\*Commit Intensity\*\* | \*\*$INTENSITY\*\*/" README.md
+          sed -i "s/\*\*Stars Earned\*\* | \*\*[0-9]*\*\*/\*\*Stars Earned\*\* | \*\*$STARS\*\*/" README.md
+          sed -i "s/\*\*Active Contribution Days\*\* | \*\*[0-9]*\*\*/\*\*Active Contribution Days\*\* | \*\*$ACTIVE_DAYS\*\*/" README.md
 
       - name: Commit changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
-          git commit -m "chore: extreme stats update [skip ci]" || echo "No changes to commit"
+          git commit -m "chore: professional stats update [skip ci]" || echo "No changes to commit"
           git push

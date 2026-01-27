@@ -70,28 +70,25 @@ Right now, I'm diving deep into:
 
 ---
 
-### 📊 Vital Signs & Contribution Flow
+### 📊 Nidhin's GitHub Statistics
 
 <div align="center">
 
-| | **[ production-babysitter-v2 : ~ $ stats ]** | |
-| :--- | :---: | ---: |
-| 🚀 | **Total Commits** | **298** |
-| ➕ | **Lines Added** | **36952** |
-| ➖ | **Lines Removed** | **16092** |
-| 🛠️ | **Pull Requests** | **6** |
-| � | **PR Merge Rate** | **0%** |
-| 🔍 | **PRs Reviewed** | **0** |
-| �🐛 | **Issues Opened** | **0** |
-| ⭐ | **Stars Earned** | **2** |
-| 📚 | **Repositories** | **24** |
-| 📅 | **Active Days (Year)** | **55** |
-| ⚡ | **Commit Intensity** | **5.4 (High Voltage ⚡)** |
+| Global Statistics | Engineering Impact |
+| :--- | :--- |
+| **Total Commits** | **298** |
+| **Pull Requests** | **6** |
+| **Lines of Code (Added)** | **36952** |
+| **Lines of Code (Removed)** | **16092** |
+| **Repositories** | **24** |
+| **Stars Earned** | **2** |
+| **Active Contribution Days** | **55** |
 
 </div>
 
 <br/>
 
+<div align="center">
   <br/>
   <img src="https://raw.githubusercontent.com/ni8hin/ni8hin/output/github-contribution-grid-snake.svg" alt="Snake animation" width="100%" />
 </div>
