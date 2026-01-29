@@ -86,8 +86,6 @@ Right now, I'm diving deep into:
 
 </div>
 
-<br/>
-
 <div align="center">
   <br/>
   <img src="https://raw.githubusercontent.com/ni8hin/ni8hin/output/github-contribution-grid-snake.svg" alt="Snake animation" width="100%" />
