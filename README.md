@@ -3,7 +3,7 @@
 </div>
 
 <div align="center">
-  <h1>Nidhin • Production Babysitter™</h1>
+  <h1>Nidhin • Infrastructure Architect</h1>
   <p><b>Cloud Solutions Architect | DevOps Lead | Frontend & UI/UX Engineer</b></p>
   
   <p align="center">
@@ -43,7 +43,7 @@
 
 ---
 
-### 🧠 Profile of a Production Babysitter
+### 🧠 Profile of an Infrastructure Architect
 
 I don't just "build" things; I ensure they thrive in the wild. Working at **Psypher AI**, I sit at the intersection of development and stability. My goal is to make deployments so boring that you forget they even happened.
 
