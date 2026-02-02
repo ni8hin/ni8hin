@@ -1,4 +1,4 @@
-<div align="center">
+u<div align="center">
   <img src="https://user-images.githubusercontent.com/22107794/139580686-887df369-edb8-4bc8-b607-4fbf6d7e4866.gif" alt="Coding Geek" width="100%" />
 </div>
 
@@ -111,3 +111,6 @@ Whether you're looking to scale your infrastructure, automate your headaches awa
 <p align="center">
   <sub><i>Disclaimer: Side effects of working with me include deployments that don't fail and a sudden urge to delete your manual scripts.</i></sub>
 </p>
+.
+.
+.
