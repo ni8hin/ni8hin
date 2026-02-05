@@ -91,7 +91,7 @@ Right now, I'm diving deep into:
   <img src="https://raw.githubusercontent.com/ni8hin/ni8hin/output/github-contribution-grid-snake.svg" alt="Snake animation" width="100%" />
 </div>
 
----
+----
 
 ### 📬 Let's Talk Ops (or coffee)
 
