@@ -21,17 +21,15 @@ jobs:
           # Calculate current year and date range
           YEAR=$(date +%Y)
           FROM_DATE="${YEAR}-01-01T00:00:00Z"
-          # Get current date in ISO format for the API
           TO_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 
-          # Query for yearly engineering metrics
+          # Query for yearly engineering metrics including repo list
           QUERY="query(\$from: DateTime!, \$to: DateTime!) {
             viewer {
+              login
               contributionsCollection(from: \$from, to: \$to) {
                 totalCommitContributions
                 totalPullRequestContributions
-                totalIssueContributions
-                totalPullRequestReviewContributions
                 contributionCalendar {
                   totalContributions
                   weeks {
@@ -41,12 +39,17 @@ jobs:
                     }
                   }
                 }
+                commitContributionsByRepository(maxRepositories: 100) {
+                  repository {
+                    name
+                    owner { login }
+                  }
+                }
               }
               repositories(first: 100, ownerAffiliations: OWNER) {
                 totalCount
                 nodes {
                   stargazerCount
-                  createdAt
                 }
               }
             }
@@ -54,31 +57,48 @@ jobs:
           
           RESPONSE=$(gh api graphql -f query="$QUERY" -f from="$FROM_DATE" -f to="$TO_DATE")
           
-          # Yearly Activity Stats
+          USER_LOGIN=$(echo $RESPONSE | jq -r '.data.viewer.login')
           COMMITS=$(echo $RESPONSE | jq '.data.viewer.contributionsCollection.totalCommitContributions')
           PRS=$(echo $RESPONSE | jq '.data.viewer.contributionsCollection.totalPullRequestContributions')
           ACTIVE_DAYS=$(echo $RESPONSE | jq '.data.viewer.contributionsCollection.contributionCalendar.weeks[].contributionDays[] | select(.contributionCount > 0)' | jq -s 'length')
-          
-          # Star count (Total stars remains lifetime as is standard, or we could filter for stars added this year if we had history)
-          # We'll stick to total stars earned but filter 'Repositories' to those created this year if desired, 
-          # however usually 'Repositories' in a year means 'Repositories worked on'.
-          # Let's count repos that had at least one contribution this year.
-          # For simplicity, we'll keep 'Repositories' as total but update the label to reflect the year context if needed.
           TOTAL_REPOS=$(echo $RESPONSE | jq '.data.viewer.repositories.totalCount')
           STARS=$(echo $RESPONSE | jq '.data.viewer.repositories.nodes | map(.stargazerCount) | add // 0')
 
-          # Line count estimation (Yearly engineering impact)
-          EST_ADDED=$((COMMITS * 120)) 
-          EST_REMOVED=$((COMMITS * 50))
-
-          # Update the professional table using sed
-          # Ensure the header includes the correct year without doubling up
-          sed -i "s/Nidhin's GitHub Statistics.*$/Nidhin's GitHub Statistics ($YEAR)/" README.md
+          # Calculate real LOC from all repos worked on this year
+          REPOS=$(echo $RESPONSE | jq -r '.data.viewer.contributionsCollection.commitContributionsByRepository[].repository | .owner.login + "/" + .name')
           
+          TOTAL_ADDED=0
+          TOTAL_REMOVED=0
+          START_EPOCH=$(date -d "${YEAR}-01-01" +%s)
+
+          for REPO in $REPOS; do
+            echo "Fetching stats for $REPO..."
+            STATS="[]"
+            # Retry loop for 202 status (GitHub computing stats)
+            for i in {1..3}; do
+              FETCHED=$(gh api "repos/$REPO/stats/contributors" --cache 1h 2>/dev/null)
+              if echo "$FETCHED" | jq -e 'type == "array"' >/dev/null 2>&1; then
+                STATS="$FETCHED"
+                break
+              fi
+              sleep 2
+            done
+
+            USER_STATS=$(echo "$STATS" | jq -c --arg LOGIN "$USER_LOGIN" '.[] | select(.author.login == $LOGIN)')
+            if [ ! -z "$USER_STATS" ] && [ "$USER_STATS" != "null" ]; then
+              W_ADDED=$(echo "$USER_STATS" | jq --arg EPOCH "$START_EPOCH" '.weeks[] | select(.w >= ($EPOCH|tonumber)) | .a' | awk '{s+=$1} END {print s+0}')
+              W_REMOVED=$(echo "$USER_STATS" | jq --arg EPOCH "$START_EPOCH" '.weeks[] | select(.w >= ($EPOCH|tonumber)) | .d' | awk '{s+=$1} END {print s+0}')
+              TOTAL_ADDED=$((TOTAL_ADDED + W_ADDED))
+              TOTAL_REMOVED=$((TOTAL_REMOVED + W_REMOVED))
+            fi
+          done
+
+          # Update the professional table in README.md
+          sed -i "s/Nidhin's GitHub Statistics.*$/Nidhin's GitHub Statistics ($YEAR)/" README.md
           sed -i "s/\*\*Total Commits\*\* | \*\*[0-9]*\*\*/\*\*Total Commits\*\* | \*\*$COMMITS\*\*/" README.md
           sed -i "s/\*\*Pull Requests\*\* | \*\*[0-9]*\*\*/\*\*Pull Requests\*\* | \*\*$PRS\*\*/" README.md
-          sed -i "s/\*\*Lines of Code (Added)\*\* | \*\*[0-9]*\*\*/\*\*Lines of Code (Added)\*\* | \*\*$EST_ADDED\*\*/" README.md
-          sed -i "s/\*\*Lines of Code (Removed)\*\* | \*\*[0-9]*\*\*/\*\*Lines of Code (Removed)\*\* | \*\*$EST_REMOVED\*\*/" README.md
+          sed -i "s/\*\*Lines of Code (Added)\*\* | \*\*[0-9]*\*\*/\*\*Lines of Code (Added)\*\* | \*\*$TOTAL_ADDED\*\*/" README.md
+          sed -i "s/\*\*Lines of Code (Removed)\*\* | \*\*[0-9]*\*\*/\*\*Lines of Code (Removed)\*\* | \*\*$TOTAL_REMOVED\*\*/" README.md
           sed -i "s/\*\*Repositories\*\* | \*\*[0-9]*\*\*/\*\*Repositories\*\* | \*\*$TOTAL_REPOS\*\*/" README.md
           sed -i "s/\*\*Stars Earned\*\* | \*\*[0-9]*\*\*/\*\*Stars Earned\*\* | \*\*$STARS\*\*/" README.md
           sed -i "s/\*\*Active Contribution Days\*\* | \*\*[0-9]*\*\*/\*\*Active Contribution Days\*\* | \*\*$ACTIVE_DAYS\*\*/" README.md
