@@ -84,17 +84,19 @@ jobs:
             echo "Fetching stats for $REPO..."
             STATS="[]"
             # Retry loop for 202 status (GitHub computing stats)
-            for i in {1..5}; do
-              FETCHED=$(gh api "repos/$REPO/stats/contributors" --cache 1h 2>/dev/null)
+            for i in {1..6}; do
+              # We do not use --cache 1h here because GitHub may return a 202 Accepted status 
+              # when stats are computing, and we don't want to locally cache the empty response.
+              FETCHED=$(gh api "repos/$REPO/stats/contributors" 2>/dev/null)
               if echo "$FETCHED" | jq -e 'type == "array"' >/dev/null 2>&1; then
                 STATS="$FETCHED"
                 break
               fi
               echo "  Waiting for GitHub to compute stats (attempt $i)..."
-              sleep 3
+              sleep 5
             done
 
-            USER_STATS=$(echo "$STATS" | jq -c --arg LOGIN "$USER_LOGIN" '.[] | select(.author.login == $LOGIN)')
+            USER_STATS=$(echo "$STATS" | jq -c --arg LOGIN "$USER_LOGIN" '.[] | select(.author != null and (.author.login | ascii_downcase == ($LOGIN | ascii_downcase)))')
             if [ ! -z "$USER_STATS" ] && [ "$USER_STATS" != "null" ]; then
                # Use a slightly lower epoch (start of year minus 7 days) to catch the first week of the year
                COMPARE_EPOCH=$((START_EPOCH - 604800))
