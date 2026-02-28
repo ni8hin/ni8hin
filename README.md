@@ -76,10 +76,10 @@ Right now, I'm diving deep into:
 
 | Global Statistics | Engineering Impact |
 | :--- | :--- |
-| **Total Commits** | **395** |
+| **Total Commits** | **401** |
 | **Pull Requests** | **11** |
-| **Lines of Code (Added)** | **104028** |
-| **Lines of Code (Removed)** | **41753** |
+| **Lines of Code (Added)** | **152751** |
+| **Lines of Code (Removed)** | **60753** |
 | **Repositories** | **24** |
 | **Stars Earned** | **2** |
 | **Active Contribution Days** | **53** |
