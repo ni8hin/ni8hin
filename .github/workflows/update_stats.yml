@@ -14,119 +14,180 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Fetch Professional Yearly Stats
+      - name: Fetch Professional Statistics
         env:
           GITHUB_TOKEN: ${{ secrets.METRICS_TOKEN }}
         run: |
-          # Calculate current year and date range
-          YEAR=$(date +%Y)
-          START_DATE="${YEAR}-01-01T00:00:00Z"
-          START_EPOCH=$(date -d "${YEAR}-01-01" +%s)
-          TO_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          # Get User Info and Creation Year
+          USER_DATA=$(gh api graphql -f query='query { viewer { login createdAt } }')
+          USER_LOGIN=$(echo $USER_DATA | jq -r '.data.viewer.login')
+          CREATED_AT=$(echo $USER_DATA | jq -r '.data.viewer.createdAt')
+          START_YEAR=$(date -d "$CREATED_AT" +%Y)
+          CURRENT_YEAR=$(date +%Y)
+          
+          echo "Authenticated as: $USER_LOGIN"
+          echo "Account created in: $START_YEAR"
 
-          echo "Target Year: $YEAR"
-          echo "Start Epoch: $START_EPOCH"
-
-          # Query for yearly engineering metrics including repo list
-          QUERY="query(\$from: DateTime!, \$to: DateTime!) {
+          # 1. Gather ALL Repositories (Owned + Contributed To)
+          REPO_QUERY="query {
             viewer {
-              login
-              contributionsCollection(from: \$from, to: \$to) {
-                totalCommitContributions
-                totalPullRequestContributions
-                contributionCalendar {
-                  weeks {
-                    contributionDays {
-                      contributionCount
-                      date
-                    }
-                  }
-                }
-                commitContributionsByRepository(maxRepositories: 100) {
-                  repository {
-                    name
-                    owner { login }
-                  }
-                }
-              }
               repositories(first: 100, ownerAffiliations: OWNER) {
-                totalCount
-                nodes {
-                  name
-                  owner { login }
-                  stargazerCount
-                }
+                nodes { name owner { login } }
+              }
+              repositoriesContributedTo(first: 100, contributionTypes: [COMMIT, PULL_REQUEST]) {
+                nodes { name owner { login } }
               }
             }
           }"
-          
-          RESPONSE=$(gh api graphql -f query="$QUERY" -f from="$START_DATE" -f to="$TO_DATE")
-          
-          USER_LOGIN=$(echo $RESPONSE | jq -r '.data.viewer.login')
-          COMMITS=$(echo $RESPONSE | jq '.data.viewer.contributionsCollection.totalCommitContributions')
-          PRS=$(echo $RESPONSE | jq '.data.viewer.contributionsCollection.totalPullRequestContributions')
-          ACTIVE_DAYS=$(echo $RESPONSE | jq '.data.viewer.contributionsCollection.contributionCalendar.weeks[].contributionDays[] | select(.contributionCount > 0)' | jq -s 'length')
-          TOTAL_REPOS=$(echo $RESPONSE | jq '.data.viewer.repositories.totalCount')
-          STARS=$(echo $RESPONSE | jq '.data.viewer.repositories.nodes | map(.stargazerCount) | add // 0')
+          REPO_RESPONSE=$(gh api graphql -f query="$REPO_QUERY")
+          ALL_REPOS=$(echo $REPO_RESPONSE | jq -r '.data.viewer.repositories.nodes[], .data.viewer.repositoriesContributedTo.nodes[] | .owner.login + "/" + .name' | sort -u | grep -v "^/" || true)
 
-          echo "Authenticated as: $USER_LOGIN"
-
-          # Combine repos from contributions and owned repos to ensure coverage
-          CONTRIB_REPOS=$(echo $RESPONSE | jq -r '.data.viewer.contributionsCollection.commitContributionsByRepository[].repository | .owner.login + "/" + .name')
-          OWNED_REPOS=$(echo $RESPONSE | jq -r '.data.viewer.repositories.nodes[] | .owner.login + "/" + .name')
-          ALL_REPOS=$(echo -e "${CONTRIB_REPOS}\n${OWNED_REPOS}" | sort -u | grep -v "^/" || true)
+          # 2. Fetch Yearly Stats (Commits, PRs, Active Days)
+          TOTAL_COMMITS=0
+          TOTAL_PRS=0
+          TOTAL_ACTIVE_DAYS=0
           
+          YEAR_COMMITS=0
+          YEAR_PRS=0
+          YEAR_ACTIVE_DAYS=0
+
+          for YEAR in $(seq $START_YEAR $CURRENT_YEAR); do
+            echo "Fetching stats for year $YEAR..."
+            START_DATE="${YEAR}-01-01T00:00:00Z"
+            END_DATE="${YEAR}-12-31T23:59:59Z"
+            if [ "$YEAR" == "$CURRENT_YEAR" ]; then
+              END_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+            fi
+
+            Y_QUERY="query(\$from: DateTime!, \$to: DateTime!) {
+              viewer {
+                contributionsCollection(from: \$from, to: \$to) {
+                  totalCommitContributions
+                  totalPullRequestContributions
+                  contributionCalendar {
+                    totalContributions
+                    weeks {
+                      contributionDays {
+                        contributionCount
+                      }
+                    }
+                  }
+                }
+              }
+            }"
+            Y_STATS=$(gh api graphql -f query="$Y_QUERY" -f from="$START_DATE" -f to="$END_DATE")
+            
+            C=$(echo $Y_STATS | jq '.data.viewer.contributionsCollection.totalCommitContributions')
+            P=$(echo $Y_STATS | jq '.data.viewer.contributionsCollection.totalPullRequestContributions')
+            A=$(echo $Y_STATS | jq '.data.viewer.contributionsCollection.contributionCalendar.weeks[].contributionDays[] | select(.contributionCount > 0)' | jq -s 'length')
+            
+            TOTAL_COMMITS=$((TOTAL_COMMITS + C))
+            TOTAL_PRS=$((TOTAL_PRS + P))
+            TOTAL_ACTIVE_DAYS=$((TOTAL_ACTIVE_DAYS + A))
+
+            if [ "$YEAR" == "$CURRENT_YEAR" ]; then
+              YEAR_COMMITS=$C
+              YEAR_PRS=$P
+              YEAR_ACTIVE_DAYS=$A
+            fi
+          done
+
+          # 3. Fetch Stars and Total Repos
+          META_QUERY="query {
+            viewer {
+              repositories(first: 100, ownerAffiliations: OWNER) {
+                totalCount
+                nodes { stargazerCount }
+              }
+            }
+          }"
+          META_DATA=$(gh api graphql -f query="$META_QUERY")
+          TOTAL_REPOS=$(echo $META_DATA | jq '.data.viewer.repositories.totalCount')
+          STARS=$(echo $META_DATA | jq '.data.viewer.repositories.nodes | map(.stargazerCount) | add // 0')
+
+          # 4. Fetch LOC (All-Time and Current Year)
           TOTAL_ADDED=0
           TOTAL_REMOVED=0
+          YEAR_ADDED=0
+          YEAR_REMOVED=0
+          
+          START_OF_YEAR_EPOCH=$(date -d "${CURRENT_YEAR}-01-01" +%s)
 
           for REPO in $ALL_REPOS; do
-            echo "----------"
-            echo "Fetching stats for $REPO..."
+            echo "Fetching LOC stats for $REPO..."
             STATS="[]"
-            # Retry loop for 202 status (GitHub computing stats)
-            for i in {1..6}; do
-              # We do not use --cache 1h here because GitHub may return a 202 Accepted status 
-              # when stats are computing, and we don't want to locally cache the empty response.
+            for i in {1..5}; do
               FETCHED=$(gh api "repos/$REPO/stats/contributors" 2>/dev/null)
               if echo "$FETCHED" | jq -e 'type == "array"' >/dev/null 2>&1; then
                 STATS="$FETCHED"
                 break
               fi
-              echo "  Waiting for GitHub to compute stats (attempt $i)..."
-              sleep 5
+              sleep 2
             done
 
             USER_STATS=$(echo "$STATS" | jq -c --arg LOGIN "$USER_LOGIN" '.[] | select(.author != null and (.author.login | ascii_downcase == ($LOGIN | ascii_downcase)))')
+            
             if [ ! -z "$USER_STATS" ] && [ "$USER_STATS" != "null" ]; then
-               # Use a slightly lower epoch (start of year minus 7 days) to catch the first week of the year
-               COMPARE_EPOCH=$((START_EPOCH - 604800))
-               W_ADDED=$(echo "$USER_STATS" | jq --arg EPOCH "$COMPARE_EPOCH" '.weeks[] | select(.w >= ($EPOCH|tonumber)) | .a' | awk '{s+=$1} END {print s+0}')
-               W_REMOVED=$(echo "$USER_STATS" | jq --arg EPOCH "$COMPARE_EPOCH" '.weeks[] | select(.w >= ($EPOCH|tonumber)) | .d' | awk '{s+=$1} END {print s+0}')
-               echo "  Added: $W_ADDED, Removed: $W_REMOVED"
-               TOTAL_ADDED=$((TOTAL_ADDED + W_ADDED))
-               TOTAL_REMOVED=$((TOTAL_REMOVED + W_REMOVED))
-            else
-               echo "  No contribution stats found for $USER_LOGIN in this repo."
+               # All-time LOC
+               R_A=$(echo "$USER_STATS" | jq '.weeks[] | .a' | awk '{s+=$1} END {print s+0}')
+               R_D=$(echo "$USER_STATS" | jq '.weeks[] | .d' | awk '{s+=$1} END {print s+0}')
+               TOTAL_ADDED=$((TOTAL_ADDED + R_A))
+               TOTAL_REMOVED=$((TOTAL_REMOVED + R_D))
+
+               # Current Year LOC (Filter by week epoch, include week before Jan 1st to be safe)
+               COMPARE_EPOCH=$((START_OF_YEAR_EPOCH - 604800))
+               Y_R_A=$(echo "$USER_STATS" | jq --arg EPOCH "$COMPARE_EPOCH" '.weeks[] | select(.w >= ($EPOCH|tonumber)) | .a' | awk '{s+=$1} END {print s+0}')
+               Y_R_D=$(echo "$USER_STATS" | jq --arg EPOCH "$COMPARE_EPOCH" '.weeks[] | select(.w >= ($EPOCH|tonumber)) | .d' | awk '{s+=$1} END {print s+0}')
+               YEAR_ADDED=$((YEAR_ADDED + Y_R_A))
+               YEAR_REMOVED=$((YEAR_REMOVED + Y_R_D))
             fi
           done
 
-          echo "----------"
-          echo "FINAL TOTALS - Added: $TOTAL_ADDED, Removed: $TOTAL_REMOVED"
+          echo "Final Totals - Commits: $TOTAL_COMMITS ($YEAR_COMMITS), Added: $TOTAL_ADDED ($YEAR_ADDED)"
 
-          # Update the professional table in README.md (using more flexible regex)
-          sed -i "s/Nidhin's GitHub Statistics.*$/Nidhin's GitHub Statistics ($YEAR)/" README.md
-          sed -i "s/\*\*Total Commits\*\*[ ]*|[ ]*\*\*[0-9]*\*\*/\*\*Total Commits\*\* | \*\*$COMMITS\*\*/" README.md
-          sed -i "s/\*\*Pull Requests\*\*[ ]*|[ ]*\*\*[0-9]*\*\*/\*\*Pull Requests\*\* | \*\*$PRS\*\*/" README.md
-          sed -i "s/\*\*Lines of Code (Added)\*\*[ ]*|[ ]*\*\*[0-9]*\*\*/\*\*Lines of Code (Added)\*\* | \*\*$TOTAL_ADDED\*\*/" README.md
-          sed -i "s/\*\*Lines of Code (Removed)\*\*[ ]*|[ ]*\*\*[0-9]*\*\*/\*\*Lines of Code (Removed)\*\* | \*\*$TOTAL_REMOVED\*\*/" README.md
-          sed -i "s/\*\*Repositories\*\*[ ]*|[ ]*\*\*[0-9]*\*\*/\*\*Repositories\*\* | \*\*$TOTAL_REPOS\*\*/" README.md
-          sed -i "s/\*\*Stars Earned\*\*[ ]*|[ ]*\*\*[0-9]*\*\*/\*\*Stars Earned\*\* | \*\*$STARS\*\*/" README.md
-          sed -i "s/\*\*Active Contribution Days\*\*[ ]*|[ ]*\*\*[0-9]*\*\*/\*\*Active Contribution Days\*\* | \*\*$ACTIVE_DAYS\*\*/" README.md
+          # 5. Build the Stats Table
+          STATS_TABLE=$(cat <<EOF
+| Global Statistics | $CURRENT_YEAR (Yearly) | Total (All Time) |
+| :--- | :--- | :--- |
+| **Total Commits** | **$YEAR_COMMITS** | **$TOTAL_COMMITS** |
+| **Pull Requests** | **$YEAR_PRS** | **$TOTAL_PRS** |
+| **Lines of Code (Added)** | **$YEAR_ADDED** | **$TOTAL_ADDED** |
+| **Lines of Code (Removed)** | **$YEAR_REMOVED** | **$TOTAL_REMOVED** |
+| **Repositories** | **-** | **$TOTAL_REPOS** |
+| **Stars Earned** | **-** | **$STARS** |
+| **Active Contribution Days** | **$YEAR_ACTIVE_DAYS** | **$TOTAL_ACTIVE_DAYS** |
+EOF
+)
+
+          # Replace the existing table in README.md
+          export STATS_TABLE
+          python3 <<'EOF'
+import os
+import re
+
+stats_table = os.environ['STATS_TABLE']
+current_year = os.popen('date +%Y').read().strip()
+
+with open('README.md', 'r') as f:
+    content = f.read()
+
+# Replace the table content
+# We look for the header and the div, then replace everything until </div>
+pattern = r'(### 📊 Nidhin\'s GitHub Statistics \(\d{4}\)\n\n<div align="center">\n\n)(.*?)(?=\n\n</div>)'
+replacement = r'\1' + stats_table
+new_content = re.sub(pattern, replacement, content, flags=re.DOTALL)
+
+# Update the header year if it changed
+new_content = re.sub(r'### 📊 Nidhin\'s GitHub Statistics \(\d{4}\)', f'### 📊 Nidhin\'s GitHub Statistics ({current_year})', new_content)
+
+with open('README.md', 'w') as f:
+    f.write(new_content)
+EOF
 
       - name: Commit changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
-          git commit -m "chore: update yearly statistics [skip ci]" || echo "No changes to commit"
+          git commit -m "chore: update comprehensive statistics [skip ci]" || echo "No changes to commit"
           git push
