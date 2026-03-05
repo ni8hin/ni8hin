@@ -145,31 +145,45 @@ jobs:
 
           echo "Final Totals - Commits: $TOTAL_COMMITS ($YEAR_COMMITS), Added: $TOTAL_ADDED ($YEAR_ADDED)"
 
-          # 5. Build the Stats Table
-          STATS_TABLE=$(cat <<EOF
-          | Global Statistics | $CURRENT_YEAR (Yearly) | Total (All Time) |
-          | :--- | :--- | :--- |
-          | **Total Commits** | **$YEAR_COMMITS** | **$TOTAL_COMMITS** |
-          | **Pull Requests** | **$YEAR_PRS** | **$TOTAL_PRS** |
-          | **Lines of Code (Added)** | **$YEAR_ADDED** | **$TOTAL_ADDED** |
-          | **Lines of Code (Removed)** | **$YEAR_REMOVED** | **$TOTAL_REMOVED** |
-          | **Repositories** | **-** | **$TOTAL_REPOS** |
-          | **Stars Earned** | **-** | **$STARS** |
-          | **Active Contribution Days** | **$YEAR_ACTIVE_DAYS** | **$TOTAL_ACTIVE_DAYS** |
-EOF
-)
-
-          # Replace the existing table in README.md
-          export STATS_TABLE
+          # 5. Build and Replace the Stats Table using Python for robustness
+          export YEAR_COMMITS YEAR_PRS YEAR_ADDED YEAR_REMOVED YEAR_ACTIVE_DAYS
+          export TOTAL_COMMITS TOTAL_PRS TOTAL_ADDED TOTAL_REMOVED TOTAL_ACTIVE_DAYS
+          export TOTAL_REPOS STARS CURRENT_YEAR
+          
           python3 <<'EOF'
           import os
           import re
 
-          stats_table = os.environ['STATS_TABLE']
-          # Strip leading indentation/spaces from the stats table lines if they were added for YAML
-          stats_table = "\n".join([line.strip() for line in stats_table.split("\n") if line.strip()])
+          # Fetch data from environment
+          cur_y = os.environ['CURRENT_YEAR']
+          y_commits = os.environ['YEAR_COMMITS']
+          y_prs = os.environ['YEAR_PRS']
+          y_added = os.environ['YEAR_ADDED']
+          y_removed = os.environ['YEAR_REMOVED']
+          y_active = os.environ['YEAR_ACTIVE_DAYS']
+
+          t_commits = os.environ['TOTAL_COMMITS']
+          t_prs = os.environ['TOTAL_PRS']
+          t_added = os.environ['TOTAL_ADDED']
+          t_removed = os.environ['TOTAL_REMOVED']
+          t_active = os.environ['TOTAL_ACTIVE_DAYS']
           
-          current_year = os.popen('date +%Y').read().strip()
+          t_repos = os.environ['TOTAL_REPOS']
+          t_stars = os.environ['STARS']
+
+          # Build the Markdown table
+          table = [
+              f"| Global Statistics | {cur_y} (Yearly) | Total (All Time) |",
+              f"| :--- | :--- | :--- |",
+              f"| **Total Commits** | **{y_commits}** | **{t_commits}** |",
+              f"| **Pull Requests** | **{y_prs}** | **{t_prs}** |",
+              f"| **Lines of Code (Added)** | **{y_added}** | **{t_added}** |",
+              f"| **Lines of Code (Removed)** | **{y_removed}** | **{t_removed}** |",
+              f"| **Repositories** | **-** | **{t_repos}** |",
+              f"| **Stars Earned** | **-** | **{t_stars}** |",
+              f"| **Active Contribution Days** | **{y_active}** | **{t_active}** |"
+          ]
+          stats_table = "\n".join(table)
 
           with open('README.md', 'r') as f:
               content = f.read()
@@ -180,11 +194,11 @@ EOF
           new_content = re.sub(pattern, replacement, content, flags=re.DOTALL)
 
           # Update the header year if it changed
-          new_content = re.sub(r'### 📊 Nidhin\'s GitHub Statistics \(\d{4}\)', f'### 📊 Nidhin\'s GitHub Statistics ({current_year})', new_content)
+          new_content = re.sub(r'### 📊 Nidhin\'s GitHub Statistics \(\d{4}\)', f'### 📊 Nidhin\'s GitHub Statistics ({cur_y})', new_content)
 
           with open('README.md', 'w') as f:
               f.write(new_content)
-EOF
+          EOF
 
       - name: Commit changes
         run: |
