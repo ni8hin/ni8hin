@@ -76,10 +76,10 @@ Right now, I'm diving deep into:
 
 | Global Statistics | 2026 (Yearly) | Total (All Time) |
 | :--- | :--- | :--- |
-| **Total Commits** | **411** | **655** |
+| **Total Commits** | **413** | **657** |
 | **Pull Requests** | **11** | **17** |
-| **Lines of Code (Added)** | **76873** | **268503** |
-| **Lines of Code (Removed)** | **22872** | **80975** |
+| **Lines of Code (Added)** | **133732** | **306896** |
+| **Lines of Code (Removed)** | **55607** | **92388** |
 | **Repositories** | **-** | **24** |
 | **Stars Earned** | **-** | **2** |
 | **Active Contribution Days** | **58** | **117** |
