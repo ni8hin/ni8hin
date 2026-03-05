@@ -28,10 +28,11 @@ jobs:
           echo "Authenticated as: $USER_LOGIN"
           echo "Account created in: $START_YEAR"
 
-          # 1. Gather ALL Repositories (Owned + Contributed To)
+          # 1. Gather ALL Repositories (Owned, Collaborator, Organization Member)
+          # We use both repositories and repositoriesContributedTo for maximum coverage
           REPO_QUERY="query {
             viewer {
-              repositories(first: 100, ownerAffiliations: OWNER) {
+              repositories(first: 100, affiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER], ownerAffiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER]) {
                 nodes { name owner { login } }
               }
               repositoriesContributedTo(first: 100, contributionTypes: [COMMIT, PULL_REQUEST]) {
@@ -92,10 +93,10 @@ jobs:
             fi
           done
 
-          # 3. Fetch Stars and Total Repos
+          # 3. Fetch Stars and Total Repos (Including Collaborations)
           META_QUERY="query {
             viewer {
-              repositories(first: 100, ownerAffiliations: OWNER) {
+              repositories(first: 100, affiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER]) {
                 totalCount
                 nodes { stargazerCount }
               }
@@ -116,13 +117,15 @@ jobs:
           for REPO in $ALL_REPOS; do
             echo "Fetching LOC stats for $REPO..."
             STATS="[]"
-            for i in {1..5}; do
-              FETCHED=$(gh api "repos/$REPO/stats/contributors" 2>/dev/null)
-              if echo "$FETCHED" | jq -e 'type == "array"' >/dev/null 2>&1; then
+            # Increased retries and wait time for GitHub to calculate stats
+            for i in {1..8}; do
+              FETCHED=$(gh api "repos/$REPO/stats/contributors" 2>/dev/null || echo "[]")
+              if [ "$FETCHED" != "[]" ] && echo "$FETCHED" | jq -e 'type == "array"' >/dev/null 2>&1; then
                 STATS="$FETCHED"
                 break
               fi
-              sleep 2
+              echo "  - Waiting for GitHub to compile stats for $REPO..."
+              sleep 3
             done
 
             USER_STATS=$(echo "$STATS" | jq -c --arg LOGIN "$USER_LOGIN" '.[] | select(.author != null and (.author.login | ascii_downcase == ($LOGIN | ascii_downcase)))')
@@ -134,7 +137,8 @@ jobs:
                TOTAL_ADDED=$((TOTAL_ADDED + R_A))
                TOTAL_REMOVED=$((TOTAL_REMOVED + R_D))
 
-               # Current Year LOC (Filter by week epoch, include week before Jan 1st to be safe)
+               # Current Year LOC (Filter by week epoch)
+               # Use one week buffer to ensure we catch the start of the year
                COMPARE_EPOCH=$((START_OF_YEAR_EPOCH - 604800))
                Y_R_A=$(echo "$USER_STATS" | jq --arg EPOCH "$COMPARE_EPOCH" '.weeks[] | select(.w >= ($EPOCH|tonumber)) | .a' | awk '{s+=$1} END {print s+0}')
                Y_R_D=$(echo "$USER_STATS" | jq --arg EPOCH "$COMPARE_EPOCH" '.weeks[] | select(.w >= ($EPOCH|tonumber)) | .d' | awk '{s+=$1} END {print s+0}')
@@ -171,7 +175,7 @@ jobs:
           t_repos = os.environ['TOTAL_REPOS']
           t_stars = os.environ['STARS']
 
-          # Build the Markdown table
+          # Build the Markdown table (3-column format)
           table = [
               f"| Global Statistics | {cur_y} (Yearly) | Total (All Time) |",
               f"| :--- | :--- | :--- |",
@@ -188,13 +192,17 @@ jobs:
           with open('README.md', 'r') as f:
               content = f.read()
 
-          # Replace the table content
-          pattern = r'(### 📊 Nidhin\'s GitHub Statistics \(\d{4}\)\n\n<div align="center">\n\n)(.*?)(?=\n\n</div>)'
-          replacement = r'\1' + stats_table
-          new_content = re.sub(pattern, replacement, content, flags=re.DOTALL)
-
-          # Update the header year if it changed
-          new_content = re.sub(r'### 📊 Nidhin\'s GitHub Statistics \(\d{4}\)', f'### 📊 Nidhin\'s GitHub Statistics ({cur_y})', new_content)
+          # Robust replacement: Identify the header and the following div
+          # This handles both 2-column and 3-column legacy formats
+          section_pattern = r'(### 📊 Nidhin\'s GitHub Statistics \(\d{4}\)\s+<div align="center">).*?(</div>)'
+          replacement = f"### 📊 Nidhin's GitHub Statistics ({cur_y})\n\n<div align=\"center\">\n\n{stats_table}\n\n</div>"
+          
+          if re.search(section_pattern, content, flags=re.DOTALL):
+              new_content = re.sub(section_pattern, replacement, content, flags=re.DOTALL)
+          else:
+              # Fallback: simple text replacement if div structure is missing
+              new_content = re.sub(r'### 📊 Nidhin\'s GitHub Statistics \(.*?\)', f"### 📊 Nidhin's GitHub Statistics ({cur_y})", content)
+              print("Warning: Could not find stats div, performing simple header update.")
 
           with open('README.md', 'w') as f:
               f.write(new_content)
