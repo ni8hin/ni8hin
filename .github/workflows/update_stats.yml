@@ -147,41 +147,43 @@ jobs:
 
           # 5. Build the Stats Table
           STATS_TABLE=$(cat <<EOF
-| Global Statistics | $CURRENT_YEAR (Yearly) | Total (All Time) |
-| :--- | :--- | :--- |
-| **Total Commits** | **$YEAR_COMMITS** | **$TOTAL_COMMITS** |
-| **Pull Requests** | **$YEAR_PRS** | **$TOTAL_PRS** |
-| **Lines of Code (Added)** | **$YEAR_ADDED** | **$TOTAL_ADDED** |
-| **Lines of Code (Removed)** | **$YEAR_REMOVED** | **$TOTAL_REMOVED** |
-| **Repositories** | **-** | **$TOTAL_REPOS** |
-| **Stars Earned** | **-** | **$STARS** |
-| **Active Contribution Days** | **$YEAR_ACTIVE_DAYS** | **$TOTAL_ACTIVE_DAYS** |
+          | Global Statistics | $CURRENT_YEAR (Yearly) | Total (All Time) |
+          | :--- | :--- | :--- |
+          | **Total Commits** | **$YEAR_COMMITS** | **$TOTAL_COMMITS** |
+          | **Pull Requests** | **$YEAR_PRS** | **$TOTAL_PRS** |
+          | **Lines of Code (Added)** | **$YEAR_ADDED** | **$TOTAL_ADDED** |
+          | **Lines of Code (Removed)** | **$YEAR_REMOVED** | **$TOTAL_REMOVED** |
+          | **Repositories** | **-** | **$TOTAL_REPOS** |
+          | **Stars Earned** | **-** | **$STARS** |
+          | **Active Contribution Days** | **$YEAR_ACTIVE_DAYS** | **$TOTAL_ACTIVE_DAYS** |
 EOF
 )
 
           # Replace the existing table in README.md
           export STATS_TABLE
           python3 <<'EOF'
-import os
-import re
+          import os
+          import re
 
-stats_table = os.environ['STATS_TABLE']
-current_year = os.popen('date +%Y').read().strip()
+          stats_table = os.environ['STATS_TABLE']
+          # Strip leading indentation/spaces from the stats table lines if they were added for YAML
+          stats_table = "\n".join([line.strip() for line in stats_table.split("\n") if line.strip()])
+          
+          current_year = os.popen('date +%Y').read().strip()
 
-with open('README.md', 'r') as f:
-    content = f.read()
+          with open('README.md', 'r') as f:
+              content = f.read()
 
-# Replace the table content
-# We look for the header and the div, then replace everything until </div>
-pattern = r'(### 📊 Nidhin\'s GitHub Statistics \(\d{4}\)\n\n<div align="center">\n\n)(.*?)(?=\n\n</div>)'
-replacement = r'\1' + stats_table
-new_content = re.sub(pattern, replacement, content, flags=re.DOTALL)
+          # Replace the table content
+          pattern = r'(### 📊 Nidhin\'s GitHub Statistics \(\d{4}\)\n\n<div align="center">\n\n)(.*?)(?=\n\n</div>)'
+          replacement = r'\1' + stats_table
+          new_content = re.sub(pattern, replacement, content, flags=re.DOTALL)
 
-# Update the header year if it changed
-new_content = re.sub(r'### 📊 Nidhin\'s GitHub Statistics \(\d{4}\)', f'### 📊 Nidhin\'s GitHub Statistics ({current_year})', new_content)
+          # Update the header year if it changed
+          new_content = re.sub(r'### 📊 Nidhin\'s GitHub Statistics \(\d{4}\)', f'### 📊 Nidhin\'s GitHub Statistics ({current_year})', new_content)
 
-with open('README.md', 'w') as f:
-    f.write(new_content)
+          with open('README.md', 'w') as f:
+              f.write(new_content)
 EOF
 
       - name: Commit changes
