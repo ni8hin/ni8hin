@@ -74,15 +74,15 @@ Right now, I'm diving deep into:
 
 <div align="center">
 
-| Global Statistics | Engineering Impact |
-| :--- | :--- |
-| **Total Commits** | **408** |
-| **Pull Requests** | **11** |
-| **Lines of Code (Added)** | **106466** |
-| **Lines of Code (Removed)** | **27589** |
-| **Repositories** | **24** |
-| **Stars Earned** | **2** |
-| **Active Contribution Days** | **57** |
+| Global Statistics | 2026 (Yearly) | Total (All Time) |
+| :--- | :--- | :--- |
+| **Total Commits** | **411** | **655** |
+| **Pull Requests** | **11** | **17** |
+| **Lines of Code (Added)** | **118635** | **290125** |
+| **Lines of Code (Removed)** | **46840** | **83380** |
+| **Repositories** | **-** | **24** |
+| **Stars Earned** | **-** | **2** |
+| **Active Contribution Days** | **58** | **117** |
 
 </div>
 
