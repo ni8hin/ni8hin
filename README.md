@@ -105,7 +105,6 @@ Whether you're looking to scale your infrastructure, automate your headaches awa
 </div>
 
 ..
-.
 <br/>
 
 <br/>
