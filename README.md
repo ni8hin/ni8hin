@@ -78,8 +78,8 @@ Right now, I'm diving deep into:
 | :--- | :--- | :--- |
 | **Total Commits** | **415** | **659** |
 | **Pull Requests** | **11** | **17** |
-| **Lines of Code (Added)** | **153248** | **367578** |
-| **Lines of Code (Removed)** | **60944** | **119964** |
+| **Lines of Code (Added)** | **153248** | **367972** |
+| **Lines of Code (Removed)** | **60944** | **119978** |
 | **Repositories** | **-** | **29** |
 | **Stars Earned** | **-** | **2** |
 | **Active Contribution Days** | **59** | **118** |
