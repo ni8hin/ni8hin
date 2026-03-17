@@ -68,23 +68,9 @@ Right now, I'm diving deep into:
 - **Self-Hosted Cloud**: Optimizing deployments on Coolify to minimize dependency on "Big Cloud" while keeping "Big Cloud" performance.
 - **State-Aware UI**: Building React systems that handle high-latency edge cases without bothering the user.
 
+
 ---
 
-### 📊 Nidhin's GitHub Statistics (2026)
-
-<div align="center">
-
-| Global Statistics | 2026 (Yearly) | Total (All Time) |
-| :--- | :--- | :--- |
-| **Total Commits** | **448** | **692** |
-| **Pull Requests** | **11** | **17** |
-| **Lines of Code (Added)** | **85710** | **149667** |
-| **Lines of Code (Removed)** | **23056** | **46023** |
-| **Repositories** | **-** | **31** |
-| **Stars Earned** | **-** | **2** |
-| **Active Contribution Days** | **70** | **129** |
-
-</div>
 
 <div align="center">
   <br/>
@@ -92,6 +78,8 @@ Right now, I'm diving deep into:
 </div>
 
 ----
+
+
 
 ### 📬 Let's Talk Ops (or coffee)
 
