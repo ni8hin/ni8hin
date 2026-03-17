@@ -92,13 +92,9 @@ Whether you're looking to scale your infrastructure, automate your headaches awa
   <a href="https://github.com/ni8hin"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" /></a>
 </div>
 
-..
-<br/>
 
 <br/>
 
 <p align="center">
   <sub><i>Disclaimer: Side effects of working with me include deployments that don't fail and a sudden urge to delete your manual scripts.</i></sub>
 </p>
-.
-.
